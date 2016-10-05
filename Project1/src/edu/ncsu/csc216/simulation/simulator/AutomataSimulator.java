@@ -34,7 +34,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	}
 	
 	public PaintedLocation[][] getView() {
-		return null;
+		return new PaintedLocation[0][0];
 	}
 	
 	public String[] getNames() {
