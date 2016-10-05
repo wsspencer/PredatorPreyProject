@@ -1,5 +1,8 @@
 package edu.ncsu.csc216.simulation.environment;
 
+import edu.ncsu.csc216.simulation.actor.Animal;
+import edu.ncsu.csc216.simulation.environment.utils.Location;
+
 public class Ecosystem {
 	
 	private int maxRows;
@@ -12,11 +15,11 @@ public class Ecosystem {
 	}
 	
 	public boolean isEmpty(Location location) {
-		
+		return false;
 	}
 	
 	public Animal getItemAt(Location location) {
-		
+		return null;
 	}
 	
 	public void remove(Location place) {
@@ -28,27 +31,27 @@ public class Ecosystem {
 	}
 	
 	public Location findFirstEmptyNeighbor(Location position, int startDirection) {
-		
+		return new Location(0, 0);
 	}
 	
 	public Location dueNorth(Location x) {
-		
+		return new Location(0, 0);
 	}
 	
 	public Location dueSouth(Location x) {
-		
+		return new Location(0, 0);
 	}
 	
 	public Location dueEast(Location x) {
-		
+		return new Location(0, 0);
 	}
 	
 	public Location dueWest(Location x) {
-		
+		return new Location(0, 0);
 	}
 	
 	public Animal[][] getMap() {
-
+		return new Animal[0][0];
 	}
 	
 	public void enableTheLiving() {

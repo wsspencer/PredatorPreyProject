@@ -24,11 +24,11 @@ public abstract class Animal {
 	}
 	
 	public char getSymbol() {
-		
+		return symbol;
 	}
 	
 	public boolean isAlive() {
-		
+		return alive;
 	}
 	
 	public void enable() {
@@ -44,15 +44,15 @@ public abstract class Animal {
 	}
 	
 	protected boolean canAct() {
-		
+		return canActThisStep;
 	}
 	
 	protected int getTimeSinceLastBreed() {
-		
+		return timeSinceLastBreed;
 	}
 	
 	protected int getTimeSinceLastMeal() {
-		
+		return timeSinceLastMeal;
 	}
 	
 	protected void incrementTimeSinceLastMeal() {
@@ -64,23 +64,22 @@ public abstract class Animal {
 	}
 	
 	protected boolean breed(Location position, EcoGrid positionFacts) {
-		
+		return false;
 	}
 	
-	protected void move(Lovation position, EcoGrid positionFacts) {
+	protected void move(Location position, EcoGrid positionFacts) {
 		
 	}
 	
 	protected boolean eat(Location position, EcoGrid positionFacts) {
-		
+		return false;
 	}
 	
 	public abstract Color getColor();
 	
-	public abstract void act(Location position, EcoGrid positionFacts) {
-		// TODO Auto-generated method stub
+	public abstract void act(Location position, EcoGrid positionFacts);
 		
-	} 	
+	
 	
 	protected abstract boolean pastBreedTime(int timeSinceLastBreed);
 	

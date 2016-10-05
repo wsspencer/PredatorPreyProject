@@ -13,10 +13,10 @@ public class PaintedLocation {
 	}
 	
 	public Color getColor() {
-		
+		return tint;
 	}
 	
 	public char getSymbol() {
-		
+		return symbol;
 	}
 }
