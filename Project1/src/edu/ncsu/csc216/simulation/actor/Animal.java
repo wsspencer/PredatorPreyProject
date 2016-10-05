@@ -3,6 +3,9 @@ package edu.ncsu.csc216.simulation.actor;
 import java.awt.Color;
 import java.util.Random;
 
+import edu.ncsu.csc216.simulation.environment.EcoGrid;
+import edu.ncsu.csc216.simulation.environment.utils.Location;
+
 public abstract class Animal {
 	private int timeSinceLastMeal;
 	private int timeSinceLastBreed;
@@ -74,13 +77,18 @@ public abstract class Animal {
 	
 	public abstract Color getColor();
 	
-	public abstract void act(Location position, EcoGrid positionFacts);
+	public abstract void act(Location position, EcoGrid positionFacts) {
+		// TODO Auto-generated method stub
+		
+	} 	
 	
 	protected abstract boolean pastBreedTime(int timeSinceLastBreed);
 	
 	protected abstract Animal makeNewBaby() ;
 	
-	protected abstract int getFoodChainRank(); 
+	protected abstract int getFoodChainRank();
+
+
 }
 
 
