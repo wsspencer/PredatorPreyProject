@@ -3,23 +3,23 @@ package edu.ncsu.csc216.simulation.actor;
 import java.awt.Color;
 
 public class Configs {
-	private static final int[] DEFAULT_FOOD_CHAIN_RANK = {};
-	private static final Color[] DEFAULT_COLORS = {};
+	private static final int[] DEFAULT_FOOD_CHAIN_RANK = {0, 10, 20};
+	private static final Color[] DEFAULT_COLORS = {Color.green, Color.orange, Color.red};
 	private static Color[] PLAYER_COLORS = {};
-	private static final int[] DEFAULT_STARVE_TIME = {};
+	private static final int[] DEFAULT_STARVE_TIME = {10, 6, 5};
 	private static int[] STARVE_TIME = {};
-	private static final int[] DEFAULT_BREED_TIME = {};
+	private static final int[] DEFAULT_BREED_TIME = {1, 7, 15};
 	private static int[] BREED_TIME = {};
 	
 	public Configs() {
 		
 	}
 	
-	public static void initConfigs(Color[] playerColors, int[] starveTime, int[] breedTime) {
-		if (playerColors != null && starveTime != null && breedTime != null) {
-			PLAYER_COLORS = playerColors;
-			STARVE_TIME = starveTime;
-			BREED_TIME = breedTime;
+	public static void initConfigs(Color[] c, int[] s, int[] b) {
+		if (c != null && s != null && b != null) {
+			PLAYER_COLORS = c;
+			STARVE_TIME = s;
+			BREED_TIME = b;
 		}
 		else {
 			setToDefaults();
