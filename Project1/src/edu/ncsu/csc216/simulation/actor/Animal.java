@@ -20,7 +20,7 @@ public abstract class Animal {
 	}
 	
 	public static void setRandomSeed(int maxBound) {
-		
+		seed = randomGenerator.nextInt(maxBound);
 	}
 	
 	public char getSymbol() {
