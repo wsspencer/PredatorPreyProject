@@ -1,5 +1,5 @@
 package edu.ncsu.csc216.simulation.simulator;
-
+ 
 import edu.ncsu.csc216.simulation.environment.utils.PaintedLocation;
 
 public class AutomataSimulator implements SimulatorInterface {

@@ -65,8 +65,8 @@ public abstract class Animal {
 	
 	protected boolean breed(Location position, EcoGrid positionFacts) {
 		return false;
-	}
-	
+	} 
+	 
 	protected void move(Location position, EcoGrid positionFacts) {
 		int direction = randomGenerator.nextInt(4); //Limits the results to 0, 1, 2, and 3
 		if (direction == 0) {
