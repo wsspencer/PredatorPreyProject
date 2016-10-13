@@ -24,11 +24,11 @@ public abstract class Animal {
 	}
 	
 	public char getSymbol() {
-		return this.symbol;
+		return symbol;
 	}
 	
 	public boolean isAlive() {
-		return this.alive;
+		return alive;
 	}
 	
 	public void enable() {
@@ -66,7 +66,7 @@ public abstract class Animal {
 	}
 	
 	protected boolean breed(Location position, EcoGrid positionFacts) {
-		if (positionFacts.getItemAt(position).symbol == this.symbol) {
+		if (positionFacts.getItemAt(position).getSymbol() == this.symbol) {
 			if (pastBreedTime(getTimeSinceLastBreed())) {
 				timeSinceLastBreed = 0;
 				return true;

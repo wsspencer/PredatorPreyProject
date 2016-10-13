@@ -15,11 +15,16 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public boolean isEmpty(Location location) {
+		if (this.getItemAt(location) == null) {
+			return true;
+		}
+		
 		return false;
 	}
 	
 	public Animal getItemAt(Location location) {
-		return null;
+		return this.getMap()[location.getCol()][location.getRow()];
+
 	}
 	
 	public void remove(Location place) {

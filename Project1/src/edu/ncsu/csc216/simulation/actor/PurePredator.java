@@ -27,7 +27,7 @@ public class PurePredator extends Animal {
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
