@@ -19,13 +19,23 @@ public class AnimalTest {
 
 	@Test
 	public void testBreed() {
+		//creates small ecosystem grid
 		EcoGrid grid = new Ecosystem(4, 4);
+		//creates new locations for our two animals
 		Location mate1Location = new Location(3, 3);
 		Location mate2Location = new Location(2, 3);
-		Animal lion = new PurePredator('L');
-		grid.add(lion, mate1Location);
+		//Declares, initializes, and adds our two animals to the grid
+		Animal lion1 = new PurePredator('L');
+		grid.add(lion1, mate1Location);
+		Animal lion2 = new PurePredator('L');
+		grid.add(lion2, mate2Location);
 		
-		assertFalse(lion.breed(mate2Location, grid));
+		//tests that the will breed
+		assertFalse(lion1.breed(mate2Location, grid));
+		
+		
+		//adds another animal of a different type
+		//tests that the two will NOT breed
 	}
 
 }
