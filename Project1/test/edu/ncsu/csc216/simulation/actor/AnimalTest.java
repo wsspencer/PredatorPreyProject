@@ -17,6 +17,9 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  */
 public class AnimalTest {
 
+	/**
+	 * A test method for testing the breed() method in Animal.java
+	 */
 	@Test
 	public void testBreed() {
 		//creates small ecosystem grid
@@ -36,6 +39,21 @@ public class AnimalTest {
 		
 		//adds another animal of a different type
 		//tests that the two will NOT breed
+	}
+	
+	/**
+	 * A test method for testing the move() method in Animal.java
+	 */
+	@Test 
+	public void testMove() {
+		EcoGrid grid = new Ecosystem(19, 19);
+		Animal rancor = new PurePredator('R');
+		Location rancorLocation = new Location(4, 2);
+		grid.add(rancor,  rancorLocation);
+		
+		rancor.move(rancorLocation, grid);
+		
+		assertTrue(grid.isEmpty(rancorLocation));
 	}
 
 }

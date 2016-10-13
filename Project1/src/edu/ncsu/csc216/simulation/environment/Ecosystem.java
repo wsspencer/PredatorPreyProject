@@ -29,8 +29,8 @@ public class Ecosystem implements EcoGrid {
 		return this.getMap()[location.getRow()][location.getCol()];
 	}
 	
-	public void remove(Location place) {
-
+	public void remove(Location location) {
+		this.grid[location.getRow()][location.getCol()] = null;
 	}
 	
 	public void add(Animal x, Location location) {
