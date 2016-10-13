@@ -40,28 +40,51 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Location findFirstEmptyNeighbor(Location position, int startDirection) {
-		if (startDirection == 0) {
-			if (isEmpty(new Location(position.getRow() - 1, position.getCol()))) {
-				return new Location(position.getRow() - 1, position.getCol());
+		
+		for (int i = 0; i <= 3; i++) {
+			//initilized direction checks
+			boolean zeroCheck = false;
+			boolean oneCheck = false;
+			boolean twoCheck = false;
+			boolean threeCheck = false;
+			
+			if (startDirection == 0) {
+				if (isEmpty(new Location(position.getRow() - 1, position.getCol()))) {
+					return new Location(position.getRow() - 1, position.getCol());
+				}
+				zeroCheck = true;
 			}
-		}
 
-		if (startDirection == 1) {
-			if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
-				return new Location(position.getRow(), position.getCol() - 1);
-			}			
-		}
+			if (startDirection == 1) {
+				if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
+					return new Location(position.getRow(), position.getCol() - 1);
+				}		
+				oneCheck = true;
+			}
 
-		if (startDirection == 2) {
-			if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
-				return new Location(position.getRow() + 1, position.getCol());
-			}			
-		}
-
-		if (startDirection == 3) {
-			if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
-				return new Location(position.getRow(), position.getCol() + 1);
-			}			
+			if (startDirection == 2) {
+				if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
+					return new Location(position.getRow() + 1, position.getCol());
+				}			
+				twoCheck = true;
+			}
+			
+			if (startDirection == 3) {
+				if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
+					return new Location(position.getRow(), position.getCol() + 1);
+				}	
+				threeCheck = true;
+				//resets startDirection to start the clockwise counting
+				startDirection = -1;
+			}
+			//increments startDirection to re-run loop (in the case that startDirection was initially 
+			//greater than 0
+			startDirection++;
+			
+			//personal short circuit to exit loop if each of the directions has been checked for empty
+			if (zeroCheck && oneCheck && twoCheck && threeCheck) {
+				startDirection = 4;
+			}
 		}
 		return null;
 	}
