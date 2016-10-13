@@ -14,7 +14,7 @@ import org.junit.Test;
 public class AnimalTest {
 
 	@Test
-	public void test() {
+	public void testMove() {
 		fail("Not yet implemented");
 	}
 
