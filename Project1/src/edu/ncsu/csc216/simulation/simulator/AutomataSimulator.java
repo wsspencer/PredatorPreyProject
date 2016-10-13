@@ -14,11 +14,11 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private static final String THRESHOLD_ERROR_MESSAGE = "";
 	
-	private String[] names;
-	
 	private int numberOfNames;
 	
-	private char[] symbol;
+	private String[] names = new String[numberOfNames];
+	
+	private char[] symbol = new char[numberOfNames];
 	
 	private static final char EMPTY = '.';
 	
