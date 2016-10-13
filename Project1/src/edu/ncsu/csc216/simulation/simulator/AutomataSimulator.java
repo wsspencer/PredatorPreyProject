@@ -16,9 +16,9 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private int numberOfNames;
 	
-	private String[] names = new String[numberOfNames];
+	private String[] names;
 	
-	private char[] symbol = new char[numberOfNames];
+	private char[] symbol;
 	
 	private static final char EMPTY = '.';
 	
@@ -35,13 +35,18 @@ public class AutomataSimulator implements SimulatorInterface {
 		if (filereader.hasNextInt()) {
 			numberOfNames = filereader.nextInt();
 		}
+		
 		//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
 		//two tokens of this line
+		names = new String[numberOfNames];
+		symbol = new char[numberOfNames];
+		
 		for (int i = 0; i < numberOfNames; i++) {
 			filereader.nextLine();
 			symbol[i] = filereader.next().charAt(0);
 			names[i] = filereader.next();
 		}
+		
 		//runs loop while file has another line, and reads in the given ecosystem as it is written
 		while (filereader.hasNextLine()) {
 			line = filereader.nextLine();
