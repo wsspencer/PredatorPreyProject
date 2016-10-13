@@ -21,17 +21,16 @@ public class Ecosystem implements EcoGrid {
 		if (this.getItemAt(location) == null) {
 			return true;
 		}
-		
+
 		return false;
 	}
 	
 	public Animal getItemAt(Location location) {
 		return this.getMap()[location.getRow()][location.getCol()];
-
 	}
 	
 	public void remove(Location place) {
-		
+
 	}
 	
 	public void add(Animal x, Location location) {
@@ -46,27 +45,25 @@ public class Ecosystem implements EcoGrid {
 				return new Location(position.getRow() - 1, position.getCol());
 			}
 		}
-		
+
 		if (startDirection == 1) {
 			if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
 				return new Location(position.getRow(), position.getCol() - 1);
 			}			
 		}
-		
+
 		if (startDirection == 2) {
 			if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
 				return new Location(position.getRow() + 1, position.getCol());
 			}			
 		}
-		
+
 		if (startDirection == 3) {
 			if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
 				return new Location(position.getRow(), position.getCol() + 1);
 			}			
 		}
-		
 		return null;
-		
 	}
 	
 	public Location dueNorth(Location x) {
