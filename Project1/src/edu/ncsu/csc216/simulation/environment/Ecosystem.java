@@ -27,7 +27,9 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public void add(Animal x, Location location) {
-		
+		if (this.isEmpty(location)) {
+			this.getMap()[location.getRow()][location.getCol()] = x;
+		}
 	}
 	
 	public Location findFirstEmptyNeighbor(Location position, int startDirection) {
