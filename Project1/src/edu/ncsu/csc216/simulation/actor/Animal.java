@@ -16,7 +16,7 @@ public abstract class Animal {
 	private static Random randomGenerator;
 	
 	public Animal(char symbol) {
-	
+		this.symbol = symbol;
 	}
 	
 	public static void setRandomSeed(int maxBound) {
@@ -68,7 +68,19 @@ public abstract class Animal {
 	}
 	
 	protected void move(Location position, EcoGrid positionFacts) {
-		
+		int direction = randomGenerator.nextInt(4); //Limits the results to 0, 1, 2, and 3
+		if (direction == 0) {
+			//go west
+		}
+		if (direction == 1) {
+			//go north
+		}
+		if (direction == 2) {
+			//go east
+		}
+		if (direction == 3) {
+			//go south
+		}
 	}
 	
 	protected boolean eat(Location position, EcoGrid positionFacts) {
@@ -78,8 +90,6 @@ public abstract class Animal {
 	public abstract Color getColor();
 	
 	public abstract void act(Location position, EcoGrid positionFacts);
-		
-	
 	
 	protected abstract boolean pastBreedTime(int timeSinceLastBreed);
 	
