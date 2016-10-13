@@ -31,7 +31,7 @@ public class AnimalTest {
 		grid.add(lion2, mate2Location);
 		
 		//tests that the will breed
-		assertFalse(lion1.breed(mate2Location, grid));
+		assertTrue(lion1.breed(mate2Location, grid));
 		
 		
 		//adds another animal of a different type

@@ -7,8 +7,8 @@ import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 public abstract class Animal {
-	private int timeSinceLastMeal;
-	private int timeSinceLastBreed;
+	private int timeSinceLastMeal = 0;
+	private int timeSinceLastBreed = 0;
 	private boolean canActThisStep;
 	private char symbol;
 	private boolean alive;
@@ -68,12 +68,15 @@ public abstract class Animal {
 	protected boolean breed(Location position, EcoGrid positionFacts) {
 		if (positionFacts.getItemAt(position).symbol == this.symbol) {
 			if (pastBreedTime(getTimeSinceLastBreed())) {
+				timeSinceLastBreed = 0;
 				return true;
 			}
+			incrementTimeSinceLastBreed();
 			return false;
 		}
 		
 		else {
+			incrementTimeSinceLastBreed();
 			return false;
 		}
 	}
