@@ -24,11 +24,11 @@ public abstract class Animal {
 	}
 	
 	public char getSymbol() {
-		return symbol;
+		return this.symbol;
 	}
 	
 	public boolean isAlive() {
-		return alive;
+		return this.alive;
 	}
 	
 	public void enable() {
@@ -40,6 +40,8 @@ public abstract class Animal {
 	}
 	
 	protected void die() {
+		this.disable();
+		this.alive = false;
 		
 	}
 	
@@ -56,11 +58,11 @@ public abstract class Animal {
 	}
 	
 	protected void incrementTimeSinceLastMeal() {
-		
+		timeSinceLastMeal++;
 	}
 	
 	protected void incrementTimeSinceLastBreed() {
-		
+		timeSinceLastBreed++;
 	}
 	
 	protected boolean breed(Location position, EcoGrid positionFacts) {
@@ -69,6 +71,7 @@ public abstract class Animal {
 	 
 	protected void move(Location position, EcoGrid positionFacts) {
 		int direction = randomGenerator.nextInt(4); //Limits the results to 0, 1, 2, and 3
+		
 		if (direction == 0) {
 			//go west
 		}

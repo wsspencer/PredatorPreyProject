@@ -51,7 +51,7 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Animal[][] getMap() {
-		return new Animal[0][0];
+		return new Animal[maxRows][maxCols];
 	}
 	
 	public void enableTheLiving() {

@@ -11,10 +11,10 @@ public class Location {
 	}
 	
 	public int getRow() {
-		return 0;
+		return row;
 	}
 	
 	public int getCol() {
-		return 0;
+		return column;
 	}
 }

@@ -9,7 +9,7 @@ public class PaintedLocation extends Location {
 	private char symbol;
 	
 	public PaintedLocation(int row, int column, Color tint, char symbol) {
-		super(0,0);
+		super(row, column);
 	}
 	
 	public Color getColor() {
