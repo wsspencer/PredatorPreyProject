@@ -41,23 +41,48 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Location findFirstEmptyNeighbor(Location position, int startDirection) {
-		return new Location(0, 0);
+		if (startDirection == 0) {
+			if (isEmpty(new Location(position.getRow() - 1, position.getCol()))) {
+				return new Location(position.getRow() - 1, position.getCol());
+			}
+		}
+		
+		if (startDirection == 1) {
+			if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
+				return new Location(position.getRow(), position.getCol() - 1);
+			}			
+		}
+		
+		if (startDirection == 2) {
+			if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
+				return new Location(position.getRow() + 1, position.getCol());
+			}			
+		}
+		
+		if (startDirection == 3) {
+			if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
+				return new Location(position.getRow(), position.getCol() + 1);
+			}			
+		}
+		
+		return null;
+		
 	}
 	
 	public Location dueNorth(Location x) {
-		return new Location(0, 0);
+		return new Location(x.getRow(), x.getCol() - 1);
 	}
 	
 	public Location dueSouth(Location x) {
-		return new Location(0, 0);
+		return new Location(x.getRow(), x.getCol() + 1);
 	}
 	
 	public Location dueEast(Location x) {
-		return new Location(0, 0);
+		return new Location(x.getRow() + 1, x.getCol());
 	}
 	
 	public Location dueWest(Location x) {
-		return new Location(0, 0);
+		return new Location(x.getRow() - 1, x.getCol());
 	}
 	
 	public Animal[][] getMap() {

@@ -86,15 +86,23 @@ public abstract class Animal {
 		
 		if (direction == 0) {
 			//go west
+			position = positionFacts.dueWest(position);
+			this.act(position, positionFacts);
 		}
 		if (direction == 1) {
 			//go north
+			position = positionFacts.dueNorth(position);
+			this.act(position, positionFacts);
 		}
 		if (direction == 2) {
 			//go east
+			position = positionFacts.dueEast(position);
+			this.act(position, positionFacts);
 		}
 		if (direction == 3) {
 			//go south
+			position = positionFacts.dueSouth(position);
+			this.act(position, positionFacts);
 		}
 	}
 	
