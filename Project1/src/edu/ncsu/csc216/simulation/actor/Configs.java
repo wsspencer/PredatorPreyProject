@@ -34,15 +34,15 @@ public class Configs {
 	}
 	
 	public static Color getPreyColor() {
-		return PLAYER_COLORS[getPreyFoodChainRank()];
+		return PLAYER_COLORS[0];
 	}
 	
 	public static Color getMiddleColor() {
-		return PLAYER_COLORS[getMiddleFoodChainRank()];
+		return PLAYER_COLORS[1];
 	}
 	
 	public static Color getPredatorColor() {
-		return PLAYER_COLORS[getPredatorFoodChainRank()];
+		return PLAYER_COLORS[2];
 	}
 	
 	public static int getPreyFoodChainRank() {
@@ -58,26 +58,26 @@ public class Configs {
 	}
 	
 	public static int getPreyStarveTime() {
-		return STARVE_TIME[getPreyFoodChainRank()];
+		return STARVE_TIME[0];
 	}
 	
 	public static int getMiddleStarveTime() {
-		return STARVE_TIME[getMiddleFoodChainRank()];
+		return STARVE_TIME[1];
 	}
 	
 	public static int getPredatorStarveTime() {
-		return STARVE_TIME[getPredatorFoodChainRank()];
+		return STARVE_TIME[2];
 	}
 	
 	public static int getPreyBreedTime() {
-		return BREED_TIME[getPreyFoodChainRank()];
+		return BREED_TIME[0];
 	}
 	
 	public static int getMiddleBreedTime() {
-		return BREED_TIME[getMiddleFoodChainRank()];
+		return BREED_TIME[1];
 	}
 	
 	public static int getPredatorBreedTime() {
-		return BREED_TIME[getPredatorFoodChainRank()];
+		return BREED_TIME[2];
 	}
 }
