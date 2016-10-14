@@ -44,6 +44,14 @@ public class AnimalTest {
 		
 		//adds another animal of a different type
 		//tests that the two will NOT breed
+		Location nonMateLocation = new Location(3, 2);
+		Animal silky = new PredatorPrey('S');
+		grid.add(silky, nonMateLocation);
+		assertFalse(tribble1.breed(nonMateLocation, grid));
+	
+		//adds another animal of the same type that has not had enough steps since the last breed
+		tribble1.getTimeSinceLastBreed();
+		assertFalse(tribble1.breed(mate2Location, grid));
 	}
 	
 	/**

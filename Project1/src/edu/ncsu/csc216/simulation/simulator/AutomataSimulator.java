@@ -9,7 +9,6 @@ import edu.ncsu.csc216.simulation.actor.Animal;
 import edu.ncsu.csc216.simulation.actor.Configs;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
-import edu.ncsu.csc216.simulation.environment.utils.Location;
 import edu.ncsu.csc216.simulation.environment.utils.PaintedLocation;
 
 public class AutomataSimulator implements SimulatorInterface {
