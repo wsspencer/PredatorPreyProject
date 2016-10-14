@@ -16,7 +16,7 @@ public abstract class Animal {
 	private static Random randomGenerator = new Random();
 	
 	public Animal(char symbol) {
-		this.symbol = symbol;
+		this.symbol = symbol; 
 	}
 	
 	public static void setRandomSeed(int maxBound) {

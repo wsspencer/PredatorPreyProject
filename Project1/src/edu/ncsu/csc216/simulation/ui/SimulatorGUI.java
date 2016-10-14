@@ -37,7 +37,7 @@ public class SimulatorGUI extends JFrame implements ActionListener {
     private final static String QUIT = "Quit";
     private final static String TITLE = "Ecosytem Simulator";
     private final static String NO_FILE_ERROR = "Input File Missing";
-    private final static String INPUT_ERROR = "Input File Error";
+    private final static String INPUT_ERROR = "Input File Error"; 
    
     // Visual components
     private JTextArea cell[]; // The display grid
