@@ -64,6 +64,7 @@ public class EcosystemTest {
 		Animal rancor = new PurePredator('R');
 		EcoGrid grid = new Ecosystem(5, 5);
 		Location location = new Location(2, 2);
+		grid.add(rancor, location);
 		
 		assertEquals(grid.dueNorth(location).getCol(), 1);
 		assertEquals(grid.dueNorth(location).getRow(), 2);
