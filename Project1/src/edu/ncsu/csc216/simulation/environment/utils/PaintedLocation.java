@@ -10,7 +10,7 @@ public class PaintedLocation extends Location {
 	
 	public PaintedLocation(int row, int column, Color tint, char symbol) {
 		super(row, column);
-		this.tint = tint;
+		this.tint = tint; 
 		this.symbol = symbol;
 	}
 	

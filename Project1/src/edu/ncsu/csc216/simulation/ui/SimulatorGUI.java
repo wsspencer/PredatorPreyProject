@@ -44,7 +44,7 @@ public class SimulatorGUI extends JFrame implements ActionListener {
     
     // Components for user input
     private final JButton btnQuit = new JButton(QUIT);    
-    private final JButton btnRun = new JButton(RUN); 
+    private final JButton btnRun = new JButton(RUN);  
     private final JLabel lblSteps = new JLabel(NUMBER_OF_STEPS);  
     private final JLabel lblTotalSteps = new JLabel(TOTAL_STEPS);
     private JTextField txtSteps;

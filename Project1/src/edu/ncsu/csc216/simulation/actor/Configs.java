@@ -15,7 +15,7 @@ public class Configs {
 	private static int[] BREED_TIME = {};
 	
 	public Configs() {
-		setToDefaults();
+	
 	}
 	
 	public static void initConfigs(Color[] c, int[] s, int[] b) {

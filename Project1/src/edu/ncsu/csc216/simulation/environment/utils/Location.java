@@ -12,7 +12,7 @@ public class Location {
 	}
 	
 	public int getRow() {
-		return row;
+		return row; 
 	}
 	
 	public int getCol() {

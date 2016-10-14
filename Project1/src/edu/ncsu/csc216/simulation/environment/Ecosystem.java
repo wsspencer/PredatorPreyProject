@@ -3,7 +3,7 @@ package edu.ncsu.csc216.simulation.environment;
 import edu.ncsu.csc216.simulation.actor.Animal;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 
-public class Ecosystem implements EcoGrid {
+public class Ecosystem implements EcoGrid {  
 	
 	private int maxRows;
 	
@@ -20,7 +20,7 @@ public class Ecosystem implements EcoGrid {
 	public boolean isEmpty(Location location) {
 		if (this.getItemAt(location) == null) {
 			return true;
-		}
+		} 
 
 		return false;
 	}

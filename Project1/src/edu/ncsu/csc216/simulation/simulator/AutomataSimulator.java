@@ -2,6 +2,9 @@ package edu.ncsu.csc216.simulation.simulator;
  
 import java.util.Scanner;
 
+import edu.ncsu.csc216.simulation.actor.Configs;
+import edu.ncsu.csc216.simulation.environment.EcoGrid;
+import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.PaintedLocation;
 
 public class AutomataSimulator implements SimulatorInterface {
@@ -22,19 +25,21 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private static final char EMPTY = '.';
 	
+	private EcoGrid simpleSystem; 
+	
 	/**
 	 * Constructor method for reading in intial file which is styled as a line for number of species; then a line with the 
 	 * symbol and name of each species; followed by the outline of the initial state of the ecosystem (with the symbol of a 
 	 * species representing that species and a "." representing an empty space.
-	 * @param initFileName the filename of the inital file the program needs to run
+	 * @param initFileName the filename of the initial file the program needs to run
 	 */
 	public AutomataSimulator(String initFileName) {
 		Scanner filereader = new Scanner(initFileName);
 		String line;
 		//checks that (and sets numberOfNames to it if so) the file's first line is an integer
-//		if (filereader.hasNextInt()) {
-//			numberOfNames = filereader.nextInt();
-//		}
+		if (filereader.hasNextInt()) {
+			numberOfNames = filereader.nextInt();
+		}
 		 
 		//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
 		//two tokens of this line
@@ -54,11 +59,13 @@ public class AutomataSimulator implements SimulatorInterface {
 				line.charAt(j);
 			}
 		}
-		
 	}
 	
 	public AutomataSimulator(String initFileName, String configFileName) {
+		this(initFileName);
 		
+		Scanner configReader = new Scanner(configFileName);
+		String line;
 	}
 	
 	public void step() {

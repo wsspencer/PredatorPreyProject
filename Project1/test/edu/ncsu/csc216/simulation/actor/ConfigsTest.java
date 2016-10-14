@@ -18,7 +18,7 @@ public class ConfigsTest {
 	@Test
 	public void testSetToDefaults() {
 		//create a Config variable, set it to default values
-		Configs test = new Configs();
+		Configs test = new Configs(); 
 		test.setToDefaults();
 		
 		//test that default colors are set

@@ -10,12 +10,13 @@ import org.junit.Test;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
+import edu.ncsu.csc216.simulation.simulator.AutomataSimulator;
 
 /**
  * @author wspencer
  *
  */
-public class AnimalTest { 
+public class AnimalTest {  
 
 	/**
 	 * A test method for testing the breed() method in Animal.java
@@ -24,6 +25,7 @@ public class AnimalTest {
 	public void testBreed() {
 		//creates small ecosystem grid
 		EcoGrid grid = new Ecosystem(5, 5);
+		Configs.setToDefaults();
 		//creates new locations for our two animals
 		Location mate1Location = new Location(3, 3);
 		Location mate2Location = new Location(2, 3);
@@ -35,8 +37,9 @@ public class AnimalTest {
 		
 		//increase time since last breed
 		tribble1.incrementTimeSinceLastBreed();
+		tribble1.incrementTimeSinceLastBreed();
 		
-		//tests that the will breed
+		//tests that they will breed
 		assertTrue(tribble1.breed(mate2Location, grid));
 		
 		
@@ -108,6 +111,7 @@ public class AnimalTest {
 	public void testTimeSinceBreed() {
 		//creates small ecosystem grid
 		EcoGrid grid = new Ecosystem(5, 5);
+		Configs.setToDefaults();
 		//creates new locations for our two animals
 		Location mate1Location = new Location(3, 3);
 		Location mate2Location = new Location(2, 3);
@@ -116,7 +120,6 @@ public class AnimalTest {
 		grid.add(tribble1, mate1Location);
 		Animal tribble2 = new PurePrey('T');
 		grid.add(tribble2, mate2Location);
-		
 		//increments the time since last breed twice
 		tribble1.incrementTimeSinceLastBreed();
 		tribble1.incrementTimeSinceLastBreed();

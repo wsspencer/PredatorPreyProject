@@ -22,5 +22,5 @@ public class LocationTest {
 		assertEquals(location.getCol(), 4);
 		assertEquals(location.getRow(), 3);
 	}
-
+ 
 }
