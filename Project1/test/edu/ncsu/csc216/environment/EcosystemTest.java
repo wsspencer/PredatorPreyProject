@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import edu.ncsu.csc216.simulation.actor.Animal;
 import edu.ncsu.csc216.simulation.actor.PredatorPrey;
+import edu.ncsu.csc216.simulation.actor.PurePredator;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
@@ -54,4 +55,24 @@ public class EcosystemTest {
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getRow(), new Location(2, 1).getRow());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), new Location(2, 1).getRow());
 	} 
+	
+	/**
+	 * test method for testing the due directions
+	 */
+	@Test
+	public void testDueDirections() {
+		Animal rancor = new PurePredator('R');
+		EcoGrid grid = new Ecosystem(5, 5);
+		Location location = new Location(2, 2);
+		
+		assertEquals(grid.dueNorth(location).getCol(), 1);
+		assertEquals(grid.dueNorth(location).getRow(), 2);
+		assertEquals(grid.dueEast(location).getCol(), 2);
+		assertEquals(grid.dueEast(location).getRow(), 3);
+		assertEquals(grid.dueSouth(location).getCol(), 3);
+		assertEquals(grid.dueSouth(location).getRow(), 2);
+		assertEquals(grid.dueWest(location).getCol(), 2);
+		assertEquals(grid.dueWest(location).getRow(), 1);
+		
+	}
 }
