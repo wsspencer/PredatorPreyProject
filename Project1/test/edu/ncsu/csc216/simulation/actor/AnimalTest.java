@@ -89,7 +89,7 @@ public class AnimalTest {
 	public void testSetRandomSeed() {
 		Animal rancor = new PurePredator('R');
 		rancor.setRandomSeed(10);
-		assert(rancor.getSeed() < 10);
+		assertTrue(rancor.getSeed() < 10);
 	}
 	
 	/**

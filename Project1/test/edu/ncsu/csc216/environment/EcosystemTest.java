@@ -83,22 +83,28 @@ public class EcosystemTest {
 	public void testBuryTheDead() {
 		EcoGrid grid = new Ecosystem(5, 5);
 		Animal rancor = new PurePredator('R');
-		
+		Animal wampa = new PredatorPrey('W');
+		Location preyPosition = new Location(3, 3);
+		Location predPosition = new Location(2, 3);
+		grid.add(rancor, predPosition);
+		grid.add(wampa, preyPosition);
 		grid.buryTheDead();
 	
-		assertEquals(1, 1);
+		assertTrue(grid.isEmpty(preyPosition));
 	}
 	
 	/**
 	 * test method for testing enableTheLiving
 	 */
 	@Test
-	public void enableTheLivint() {
+	public void enableTheLiving() {
 		EcoGrid grid = new Ecosystem(5, 5);
 		Animal rancor = new PurePredator('R');
+		Location location = new Location(2, 3);
+		grid.add(rancor, location);
 		
 		grid.enableTheLiving();
 		
-		assertEquals(1, 1);
+		assertTrue(rancor.isAlive());
 	}
 }
