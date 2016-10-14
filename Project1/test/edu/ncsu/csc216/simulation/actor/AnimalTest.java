@@ -170,7 +170,6 @@ public class AnimalTest {
 		Animal rancor = new PurePredator('R');
 		EcoGrid grid = new Ecosystem(5, 5);
 		Location preyLocation = new Location (3, 3);
-		Location predLocation = new Location(2, 3);
 		rancor.eat(preyLocation, grid);
 		assertTrue(grid.isEmpty(preyLocation));
 	}

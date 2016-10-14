@@ -23,7 +23,7 @@ public class AutomataSimulatorTest {
 		
 		sim.step(); 
 		
-		assertEquals(sim.getNames()[0], "Owl");
+		assertEquals(sim.getNames()[0], "Great Gray Owl");
 		
 		//create a test for step with single file constructor
 		AutomataSimulator sim2 = new AutomataSimulator("test-files/initFile");
