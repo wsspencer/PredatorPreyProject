@@ -32,9 +32,9 @@ public class AutomataSimulator implements SimulatorInterface {
 		Scanner filereader = new Scanner(initFileName);
 		String line;
 		//checks that (and sets numberOfNames to it if so) the file's first line is an integer
-		if (filereader.hasNextInt()) {
-			numberOfNames = filereader.nextInt();
-		}
+//		if (filereader.hasNextInt()) {
+//			numberOfNames = filereader.nextInt();
+//		}
 		 
 		//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
 		//two tokens of this line
