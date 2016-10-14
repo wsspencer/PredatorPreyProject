@@ -38,7 +38,7 @@ public class PredatorPreyTest {
 		wampa.act(wampaLocation, grid);
 		
 		//make an assertion that tests the action of wampa
-		assertEquals(1, 1);
+		assertFalse(wampa.canAct());
 	}
 
 	@Test 

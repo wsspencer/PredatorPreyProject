@@ -38,7 +38,7 @@ public class PurePreyTest {
 		tribble.act(tribbleLocation, grid);
 		
 		//make an assertion that tests the action of tribble
-		assertEquals(1, 1);
+		assertFalse(tribble.canAct());
 	}
 
 	@Test 

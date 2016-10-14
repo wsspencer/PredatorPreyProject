@@ -35,7 +35,7 @@ public class PurePredatorTest {
 		sarlacc.act(sarlaccLocation, grid);
 		
 		//make an assertion that tests the action of sarlacc
-		assertEquals(1, 1);
+		assertFalse(sarlacc.canAct());
 	}
 
 	@Test 

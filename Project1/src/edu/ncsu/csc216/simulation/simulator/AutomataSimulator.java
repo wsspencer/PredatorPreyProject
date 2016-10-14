@@ -20,11 +20,11 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private static final String THRESHOLD_ERROR_MESSAGE = "";
 	
-	private int numberOfNames;
+	private int numberOfNames = 0;
 	
-	private String[] names;
+	private String[] names = {};
 	
-	private char[] symbol;
+	private char[] symbol = {};
 	
 	private static final char EMPTY = '.';
 	
@@ -68,6 +68,7 @@ public class AutomataSimulator implements SimulatorInterface {
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException();
 		}
+		simpleSystem = new Ecosystem(SIZE, THRESHOLD);
 	}
 	
 	public AutomataSimulator(String initFileName, String configFileName) {

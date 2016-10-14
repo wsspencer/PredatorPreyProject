@@ -26,7 +26,7 @@ public abstract class Animal {
 	}
 	
 	public static void setRandomSeed(int maxBound) {
-		seed = randomGenerator.nextInt(maxBound);
+		setSeed(randomGenerator.nextInt(maxBound));
 	}
 	
 	public char getSymbol() {
@@ -139,6 +139,14 @@ public abstract class Animal {
 	protected abstract Animal makeNewBaby() ;
 	
 	protected abstract int getFoodChainRank();
+
+	public static int getSeed() {
+		return seed;
+	}
+
+	public static void setSeed(int seed) {
+		Animal.seed = seed;
+	}
 
 
 }

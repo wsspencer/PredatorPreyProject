@@ -10,7 +10,6 @@ import org.junit.Test;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
-import edu.ncsu.csc216.simulation.simulator.AutomataSimulator;
 
 /**
  * @author wspencer
@@ -89,6 +88,7 @@ public class AnimalTest {
 	public void testSetRandomSeed() {
 		Animal rancor = new PurePredator('R');
 		rancor.setRandomSeed(10);
+		assert(rancor.getSeed() < 10);
 	}
 	
 	/**
