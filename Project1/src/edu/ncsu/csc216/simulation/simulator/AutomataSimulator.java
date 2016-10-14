@@ -132,7 +132,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	}
 
 	public PaintedLocation[][] getView() {
-		return new PaintedLocation[0][0];
+		return new PaintedLocation[SIZE][THRESHOLD];
 	}
 
 	public String[] getNames() {

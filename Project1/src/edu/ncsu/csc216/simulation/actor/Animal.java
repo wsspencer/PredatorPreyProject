@@ -51,9 +51,7 @@ public abstract class Animal {
 	}
 	
 	protected boolean canAct() {
-		if (alive = true) {
-			canActThisStep = true;
-		}
+		canActThisStep = false;
 		return canActThisStep;
 	}
 	

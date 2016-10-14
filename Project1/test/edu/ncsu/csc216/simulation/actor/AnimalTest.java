@@ -84,6 +84,7 @@ public class AnimalTest {
 	/**
 	 * A test method for testing the 
 	 */
+	@SuppressWarnings("static-access")
 	@Test
 	public void testSetRandomSeed() {
 		Animal rancor = new PurePredator('R');
@@ -154,7 +155,11 @@ public class AnimalTest {
 	@Test
 	public void testCanAct() {
 		Animal rancor = new PurePredator('R');
-		assertTrue(rancor.canAct());
+		EcoGrid grid = new Ecosystem(6, 6);
+		Location location = new Location(2, 4);
+		rancor.move(location, grid);
+		
+		assertFalse(rancor.canAct());
 	}
 	
 	/**

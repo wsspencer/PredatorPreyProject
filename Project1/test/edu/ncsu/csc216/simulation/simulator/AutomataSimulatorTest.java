@@ -23,14 +23,14 @@ public class AutomataSimulatorTest {
 		
 		sim.step(); 
 		
-		assertEquals(1, 1);
+		assertEquals(sim.getNames()[0], "Owl");
 		
 		//create a test for step with single file constructor
 		AutomataSimulator sim2 = new AutomataSimulator("test-files/initFile");
 		
 		sim2.step();
 		
-		assertEquals(1, 1);
+		assertEquals(sim.getNames()[1], "Mouse");
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class AutomataSimulatorTest {
 		AutomataSimulator sim = new AutomataSimulator("test-files/initFile");
 		sim.getView();
 		
-		assertEquals(1, 1);
+		assertTrue(sim.getView() != null);
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public class AutomataSimulatorTest {
 		AutomataSimulator sim = new AutomataSimulator("test-files/initFile");
 		sim.getNames();
 		
-		assertEquals(1, 1);
+		assertEquals(sim.getNames()[1], "Mouse");
 	}	
 	
 	/**
