@@ -9,7 +9,7 @@ public class Ecosystem implements EcoGrid {
 	
 	private int maxCols;
 	
-	Animal[][] grid;
+	Animal[][] grid; 
 	
 	public Ecosystem(int maxRows, int maxCols) {
 		this.maxRows = maxRows;
