@@ -9,37 +9,35 @@ public class PredatorPrey extends Animal {
 
 	public PredatorPrey(char symbol) {
 		super(symbol);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return Configs.getMiddleColor();
 	}
 
 	@Override
 	public void act(Location position, EcoGrid positionFacts) {
-		// TODO Auto-generated method stub
-		
+		//TODO
 	}
 
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		// TODO Auto-generated method stub
+		if (timeSinceLastBreed > Configs.getMiddleBreedTime()) {
+			return true;
+		}
+		
 		return false;
 	}
 
 	@Override
 	protected Animal makeNewBaby() {
-		// TODO Auto-generated method stub
-		return null;
+		return new PredatorPrey(this.getSymbol());
 	}
 
 	@Override
 	protected int getFoodChainRank() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Configs.getMiddleFoodChainRank();
 	}
 
 }

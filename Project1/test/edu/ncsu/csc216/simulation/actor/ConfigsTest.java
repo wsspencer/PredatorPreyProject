@@ -42,4 +42,35 @@ public class ConfigsTest {
 		assertEquals(test.getPredatorStarveTime(), 5);
 	}
 
+	@Test 
+	public void testCustomConfig() {
+		//create a Config variable, set it to custom values
+		Configs custom = new Configs();
+		Color[] c = {Color.black, Color.cyan, Color.green};
+		int[] s = {5, 3, 1};
+		int[] b = {2, 4, 7};
+		
+		//set config variable to custom values for breed/starve time and colors
+		custom.initConfigs(c, s, b);
+		
+		//test that custom colors are set
+		assertEquals(custom.getPreyColor(), Color.black);
+		assertEquals(custom.getMiddleColor(), Color.cyan);
+		assertEquals(custom.getPredatorColor(), Color.green);
+		
+		//test that custom breed times are set
+		assertEquals(custom.getPreyBreedTime(), 2);
+		assertEquals(custom.getMiddleBreedTime(), 4);
+		assertEquals(custom.getPredatorBreedTime(), 7);
+		
+		//test that default food chain ranks are set (despite initiating with custom other values)
+		assertEquals(custom.getPreyFoodChainRank(), 0);
+		assertEquals(custom.getMiddleFoodChainRank(), 10);
+		assertEquals(custom.getPredatorFoodChainRank(), 20);
+		
+		//test that custom starve times are set
+		assertEquals(custom.getPreyStarveTime(), 5);
+		assertEquals(custom.getMiddleStarveTime(), 3);
+		assertEquals(custom.getPredatorStarveTime(), 1);
+	}
 }
