@@ -53,4 +53,24 @@ public class PredatorPreyTest {
 		//test that returns false when NOT past breed time
 		assertFalse(wampa.pastBreedTime(2));
 	}
+	
+	@Test
+	public void testMakeNewBaby() {
+		//create an animal variable to work with
+		Animal wampa = new PredatorPrey('W');
+		Configs.setToDefaults();
+		
+		//attempt to make new baby wampa/test that it occurred
+		assertEquals(wampa.makeNewBaby().getSymbol(), wampa.getSymbol());
+	}
+	
+	@Test 
+	public void testGetFoodChainRank() {
+		//create an animal variable to work with
+		Animal wampa = new PredatorPrey('W');
+		Configs.setToDefaults();
+		
+		//test that wampa returns the proper food chain rank
+		assertEquals(wampa.getFoodChainRank(), 10);
+	}
 }
