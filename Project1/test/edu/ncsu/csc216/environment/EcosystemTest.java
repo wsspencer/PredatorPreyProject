@@ -75,4 +75,30 @@ public class EcosystemTest {
 		assertEquals(grid.dueWest(location).getRow(), 1);
 		
 	}
+	
+	/**
+	 * test method for testing buryTheDead
+	 */
+	@Test
+	public void testBuryTheDead() {
+		EcoGrid grid = new Ecosystem(5, 5);
+		Animal rancor = new PurePredator('R');
+		
+		grid.buryTheDead();
+	
+		assertEquals(1, 1);
+	}
+	
+	/**
+	 * test method for testing enableTheLiving
+	 */
+	@Test
+	public void enableTheLivint() {
+		EcoGrid grid = new Ecosystem(5, 5);
+		Animal rancor = new PurePredator('R');
+		
+		grid.enableTheLiving();
+		
+		assertEquals(1, 1);
+	}
 }

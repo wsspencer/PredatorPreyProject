@@ -35,7 +35,7 @@ public class AutomataSimulator implements SimulatorInterface {
 		if (filereader.hasNextInt()) {
 			numberOfNames = filereader.nextInt();
 		}
-		
+		 
 		//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
 		//two tokens of this line
 		names = new String[numberOfNames];
