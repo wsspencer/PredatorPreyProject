@@ -18,7 +18,7 @@ public class PurePredator extends Animal {
 		return null;
 	}
 
-	@Override
+	@Override 
 	public void act(Location position, EcoGrid positionFacts) {
 		// TODO Auto-generated method stub
 		

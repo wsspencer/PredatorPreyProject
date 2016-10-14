@@ -11,7 +11,7 @@ public abstract class Animal {
 	private int timeSinceLastBreed = 0;
 	private boolean canActThisStep;
 	private char symbol;
-	private boolean alive;
+	private boolean alive = true;
 	private static int seed;
 	private static Random randomGenerator = new Random();
 	
@@ -42,7 +42,6 @@ public abstract class Animal {
 	protected void die() {
 		this.disable();
 		this.alive = false;
-		
 	}
 	
 	protected boolean canAct() {

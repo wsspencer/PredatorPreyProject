@@ -66,5 +66,79 @@ public class AnimalTest {
 				grid.getItemAt(rancorMoveSouth) == rancor ||
 				grid.getItemAt(rancorMoveNorth) == rancor);
 	}
+	
+	/**
+	 * A test method for testing the Animal constructor and the symbol getter methods
+	 */
+	@Test
+	public void testGetSymbol() {
+		Animal rancor = new PurePredator('R');
+		assertEquals(rancor.getSymbol(), 'R');
+	}
 
+	/**
+	 * A test method for testing the 
+	 */
+	@Test
+	public void testSetRandomSeed() {
+		Animal rancor = new PurePredator('R');
+		rancor.setRandomSeed(10);
+	}
+	
+	/**
+	 * A test method for testing the Animal methods die, isAlive, and 
+	 */
+	@Test
+	public void testDieAlive() {
+		//initiate rancor, check it's alive, kill it, check again
+		Animal rancor = new PurePredator('R');
+		assertTrue(rancor.isAlive());
+		rancor.die();
+		assertFalse(rancor.isAlive());
+	}
+	
+	/**
+	 * A test method for testing the Animal method for time since last breed, breed, increment time 
+	 * since last breed, and decrement time since last breed
+	 */
+	@Test
+	public void testTimeSinceBreed() {
+		//creates small ecosystem grid
+		EcoGrid grid = new Ecosystem(5, 5);
+		//creates new locations for our two animals
+		Location mate1Location = new Location(3, 3);
+		Location mate2Location = new Location(2, 3);
+		//Declares, initializes, and adds our two animals to the grid
+		Animal tribble1 = new PurePrey('T');
+		grid.add(tribble1, mate1Location);
+		Animal tribble2 = new PurePrey('T');
+		grid.add(tribble2, mate2Location);
+		
+		//increments the time since last breed twice
+		tribble1.incrementTimeSinceLastBreed();
+		tribble1.incrementTimeSinceLastBreed();
+		//checks that the increment worked
+		assertEquals(tribble1.getTimeSinceLastBreed(), 2);
+		
+		//ensures that they will breed
+		tribble1.breed(mate2Location, grid);
+		
+		//tests that breeding set time since last breed to 0
+		assertEquals(tribble1.getTimeSinceLastBreed(), 0);
+	}
+	
+	/**
+	 * A test method for testing the Animal method for time since last meal and incrementing this value
+	 */
+	@Test
+	public void testTimeSinceMeal() {
+		//initializes animal
+		Animal wampa = new PredatorPrey('W');
+		//checks that the time since last meal is 0
+		assertEquals(wampa.getTimeSinceLastMeal(), 0);
+		//increments the time since last meal
+		wampa.incrementTimeSinceLastMeal();
+		//checks that the time since last meal was incremented for wampa
+		assertEquals(wampa.getTimeSinceLastMeal(), 1);
+	}
 }

@@ -29,7 +29,7 @@ public class PurePrey extends Animal {
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
