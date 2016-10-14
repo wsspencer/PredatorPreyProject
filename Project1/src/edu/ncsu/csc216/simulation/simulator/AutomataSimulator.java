@@ -9,6 +9,7 @@ import edu.ncsu.csc216.simulation.actor.Animal;
 import edu.ncsu.csc216.simulation.actor.Configs;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
+import edu.ncsu.csc216.simulation.environment.utils.Location;
 import edu.ncsu.csc216.simulation.environment.utils.PaintedLocation;
 
 public class AutomataSimulator implements SimulatorInterface {
@@ -144,6 +145,15 @@ public class AutomataSimulator implements SimulatorInterface {
 				if (creature[i][j] != null) {
 					creature[i][j].enable();
 				}
+			}
+		}
+		//go through and have each animal in the grid act.  Burying the dead along the way
+		for (int i = 0; i < creature.length; i++) {
+			for (int j = 0; j < creature.length; j++) {
+				if (creature[i][j] != null && creature[i][j].isAlive()) {
+					creature[i][j].act(new Location(i, j), simpleSystem);
+				}
+				simpleSystem.buryTheDead();
 			}
 		}
 	}
