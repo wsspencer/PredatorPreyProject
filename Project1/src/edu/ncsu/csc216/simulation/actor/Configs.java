@@ -1,6 +1,9 @@
 package edu.ncsu.csc216.simulation.actor;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Configs {
 	private static final int[] DEFAULT_FOOD_CHAIN_RANK = {0, 10, 20};
@@ -12,7 +15,7 @@ public class Configs {
 	private static int[] BREED_TIME = {};
 	
 	public Configs() {
-		
+		setToDefaults();
 	}
 	
 	public static void initConfigs(Color[] c, int[] s, int[] b) {

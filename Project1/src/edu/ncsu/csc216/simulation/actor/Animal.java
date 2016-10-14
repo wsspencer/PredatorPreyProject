@@ -8,7 +8,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 public abstract class Animal {
 	private int timeSinceLastMeal = 0;
-	private int timeSinceLastBreed = 0;
+	private int timeSinceLastBreed = 0; 
 	private boolean canActThisStep;
 	private char symbol;
 	private boolean alive = true;

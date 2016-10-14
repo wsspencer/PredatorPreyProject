@@ -15,7 +15,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  * @author wspencer
  *
  */
-public class AnimalTest {
+public class AnimalTest { 
 
 	/**
 	 * A test method for testing the breed() method in Animal.java
@@ -28,13 +28,16 @@ public class AnimalTest {
 		Location mate1Location = new Location(3, 3);
 		Location mate2Location = new Location(2, 3);
 		//Declares, initializes, and adds our two animals to the grid
-		Animal lion1 = new PurePredator('L');
-		grid.add(lion1, mate1Location);
-		Animal lion2 = new PurePredator('L');
-		grid.add(lion2, mate2Location);
+		Animal tribble1 = new PurePrey('T');
+		grid.add(tribble1, mate1Location);
+		Animal tribble2 = new PurePrey('T');
+		grid.add(tribble2, mate2Location);
+		
+		//increase time since last breed
+		tribble1.incrementTimeSinceLastBreed();
 		
 		//tests that the will breed
-		assertTrue(lion1.breed(mate2Location, grid));
+		assertTrue(tribble1.breed(mate2Location, grid));
 		
 		
 		//adds another animal of a different type

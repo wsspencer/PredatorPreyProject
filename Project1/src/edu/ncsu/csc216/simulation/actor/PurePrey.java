@@ -11,37 +11,35 @@ public class PurePrey extends Animal {
 
 	public PurePrey(char symbol) {
 		super(symbol);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
+		return Configs.getPreyColor();
 	}
 
 	@Override
 	public void act(Location position, EcoGrid positionFacts) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		// TODO Auto-generated method stub
-		return true;
+		if (timeSinceLastBreed > Configs.getPreyBreedTime()) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	@Override
 	protected Animal makeNewBaby() {
-		// TODO Auto-generated method stub
-		return null;
+		return new PurePrey(this.getSymbol());
 	}
 
 	@Override
 	protected int getFoodChainRank() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Configs.getPreyFoodChainRank();
 	}
 
 }

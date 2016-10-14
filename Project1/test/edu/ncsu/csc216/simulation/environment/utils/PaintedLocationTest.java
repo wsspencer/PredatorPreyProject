@@ -19,7 +19,7 @@ public class PaintedLocationTest {
 	 * This is a test method for testing painted location
 	 */
 	@Test
-	public void testPaintedLocation() {
+	public void testPaintedLocation() { 
 		PaintedLocation testPL = new PaintedLocation(3, 2, Color.green, 'T');
 		
 		assertEquals(testPL.getColor(), Color.green);
