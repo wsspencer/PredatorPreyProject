@@ -14,7 +14,7 @@ public class Configs {
 	private static final int[] DEFAULT_BREED_TIME = {1, 7, 15};
 	private static int[] BREED_TIME = {};
 	
-	public Configs() {
+	public Configs() { 
 	
 	}
 	

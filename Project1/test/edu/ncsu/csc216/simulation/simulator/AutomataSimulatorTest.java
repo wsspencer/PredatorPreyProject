@@ -54,4 +54,14 @@ public class AutomataSimulatorTest {
 		
 		assertEquals(1, 1);
 	}	
+	
+	/**
+	 * Test method for testing two constructors in Automata Simulator
+	 */
+	@Test 
+	public void testAutomataSimulator() {
+		AutomataSimulator sim = new AutomataSimulator("initFile.txt", "configFile.txt");
+		assertEquals(sim.getNames()[1], "Owl");
+		assertEquals(sim.getNames()[2], "Frog");
+	}
 }

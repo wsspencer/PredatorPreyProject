@@ -1,5 +1,6 @@
 package edu.ncsu.csc216.simulation.simulator;
  
+import java.awt.Color;
 import java.util.Scanner;
 
 import edu.ncsu.csc216.simulation.actor.Configs;
@@ -66,6 +67,46 @@ public class AutomataSimulator implements SimulatorInterface {
 		
 		Scanner configReader = new Scanner(configFileName);
 		String line;
+		Color[] colors = new Color[3];
+		int[] starve = new int[3];
+		int[] breed = new int[3];
+		
+		//Reads in the three lines of the configuration file.  Sets to defaults if they're awry
+		for (int i = 0; i < numberOfNames; i++) {
+			if (configReader.hasNext()) {
+				colors[i] = Color.decode("0x" + configReader.next());	
+			}
+			else {
+				Configs.setToDefaults();
+			}
+		}
+		if (configReader.next().equals("colors")) {
+			configReader.nextLine();
+		}
+		
+		for (int j = 0; j < numberOfNames; j++) {
+			if (configReader.hasNextInt()) {
+				starve[j] = configReader.nextInt();
+			}
+			else {
+				Configs.setToDefaults();
+			}
+		}
+		if (configReader.next().equals("starve")) {
+			configReader.nextLine();
+		}
+		
+		for (int k = 0; k < numberOfNames; k++) {
+			if (configReader.hasNextInt()) {
+				breed[k] = configReader.nextInt();
+			}
+			else {
+				Configs.setToDefaults();
+			}
+		}
+		if (configReader.next().equals("breed")) {
+			configReader.nextLine();
+		}
 	}
 	
 	public void step() {
