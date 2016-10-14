@@ -46,14 +46,25 @@ public class AnimalTest {
 	 */
 	@Test 
 	public void testMove() {
+		//establishes the animal, position, grid, test locations, and adds the animal to that grid
 		EcoGrid grid = new Ecosystem(19, 19);
 		Animal rancor = new PurePredator('R');
 		Location rancorLocation = new Location(4, 2);
+		Location rancorMoveWest = new Location(rancorLocation.getRow(), rancorLocation.getCol() + 1);
+		Location rancorMoveEast = new Location(rancorLocation.getRow() + 1, rancorLocation.getCol());
+		Location rancorMoveSouth = new Location(rancorLocation.getRow(), rancorLocation.getCol() - 1);
+		Location rancorMoveNorth = new Location(rancorLocation.getRow() - 1, rancorLocation.getCol());
 		grid.add(rancor,  rancorLocation);
-		
+		//moves rancor
 		rancor.move(rancorLocation, grid);
 		
+		//ensure grid is empty where rancor was previousy
 		assertTrue(grid.isEmpty(rancorLocation));
+		//ensure rancor moves to one of the 4 random directions
+		assertTrue(grid.getItemAt(rancorMoveWest) == rancor ||
+				grid.getItemAt(rancorMoveEast) == rancor ||
+				grid.getItemAt(rancorMoveSouth) == rancor ||
+				grid.getItemAt(rancorMoveNorth) == rancor);
 	}
 
 }

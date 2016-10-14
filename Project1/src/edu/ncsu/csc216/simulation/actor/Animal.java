@@ -13,7 +13,7 @@ public abstract class Animal {
 	private char symbol;
 	private boolean alive;
 	private static int seed;
-	private static Random randomGenerator;
+	private static Random randomGenerator = new Random();
 	
 	public Animal(char symbol) {
 		this.symbol = symbol;
