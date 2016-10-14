@@ -13,9 +13,14 @@ import org.junit.Test;
  */
 public class LocationTest {
 
+	/**
+	 * This is a test case for testing location
+	 */
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testLocation() {
+		Location location = new Location(3, 4);
+		assertEquals(location.getCol(), 4);
+		assertEquals(location.getRow(), 3);
 	}
 
 }
