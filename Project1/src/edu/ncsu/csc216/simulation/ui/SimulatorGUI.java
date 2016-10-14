@@ -111,7 +111,7 @@ public class SimulatorGUI extends JFrame implements ActionListener {
     		if (args.length == 1) {
     			simulation = new AutomataSimulator(args[0]);
     		}
-    		else if (args.length == 2) {
+    		else if (args.length == 2) { 
     			simulation = new AutomataSimulator(args[0], args[1]);
     		}
     		else

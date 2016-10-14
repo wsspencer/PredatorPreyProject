@@ -1,6 +1,8 @@
 package edu.ncsu.csc216.simulation.simulator;
  
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import edu.ncsu.csc216.simulation.actor.Configs;
@@ -35,30 +37,36 @@ public class AutomataSimulator implements SimulatorInterface {
 	 * @param initFileName the filename of the initial file the program needs to run
 	 */
 	public AutomataSimulator(String initFileName) {
-		Scanner filereader = new Scanner(initFileName);
-		String line;
-		//checks that (and sets numberOfNames to it if so) the file's first line is an integer
-		if (filereader.hasNextInt()) {
-			numberOfNames = filereader.nextInt();
-		}
-		 
-		//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
-		//two tokens of this line
-		names = new String[numberOfNames];
-		symbol = new char[numberOfNames];
-		
-		for (int i = 0; i < numberOfNames; i++) {
-			filereader.nextLine();
-			symbol[i] = filereader.next().charAt(0);
-			names[i] = filereader.next();
-		}
-		
-		//runs loop while file has another line, and reads in the given ecosystem as it is written
-		while (filereader.hasNextLine()) {
-			line = filereader.nextLine();
-			for (int j = 0; j < line.length(); j++) {
-				line.charAt(j);
+		try {
+			Scanner filereader = new Scanner(new File(initFileName));
+			String line;
+			
+			//checks that (and sets numberOfNames to it if so) the file's first line is an integer
+			if (filereader.hasNextInt()) {
+				numberOfNames = filereader.nextInt();
 			}
+		 
+			//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
+			//two tokens of this line
+			names = new String[numberOfNames];
+			symbol = new char[numberOfNames];
+		
+			for (int i = 0; i < numberOfNames; i++) {
+				filereader.nextLine();
+				symbol[i] = filereader.next().charAt(0);
+				names[i] = filereader.next();
+			}
+			
+			//runs loop while file has another line, and reads in the given ecosystem as it is written
+			while (filereader.hasNextLine()) {
+				line = filereader.nextLine();
+				for (int j = 0; j < line.length(); j++) {
+					line.charAt(j);
+				}
+			}
+			filereader.close();
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException();
 		}
 	}
 	
