@@ -72,48 +72,57 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	public AutomataSimulator(String initFileName, String configFileName) {
 		this(initFileName);
+		try {
+			Scanner configReader = new Scanner(new File(configFileName));
+			String line;
+			Color[] colors = new Color[3];
+			int[] starve = new int[3];
+			int[] breed = new int[3];
+			String color;
 		
-		Scanner configReader = new Scanner(configFileName);
-		String line;
-		Color[] colors = new Color[3];
-		int[] starve = new int[3];
-		int[] breed = new int[3];
-		
-		//Reads in the three lines of the configuration file.  Sets to defaults if they're awry
-		for (int i = 0; i < numberOfNames; i++) {
-			if (configReader.hasNext()) {
-				colors[i] = Color.decode("0x" + configReader.next());	
+			//Reads in the three lines of the configuration file.  Sets to defaults if they're awry
+			for (int i = 0; i < numberOfNames; i++) {
+				if (configReader.hasNext()) {
+					//ATTN: need to change to just reading hexidecimal to color...can't figure it out yet...
+					color = configReader.next();
+					if (color.equals("FF0000")) {
+						colors[i] = Color.green;	
+					}
+					if (color.equals("00FF00")) {
+						colors[i] = Color.orange;
+					}
+					if (color.equals("0000FF")) {
+						colors[i] = Color.red;
+					}
+				}
+				else {
+					Configs.setToDefaults();
+				}
 			}
-			else {
-				Configs.setToDefaults();
-			}
-		}
-		if (configReader.next().equals("colors")) {
 			configReader.nextLine();
-		}
 		
-		for (int j = 0; j < numberOfNames; j++) {
-			if (configReader.hasNextInt()) {
-				starve[j] = configReader.nextInt();
+			for (int j = 0; j < numberOfNames; j++) {
+				if (configReader.hasNextInt()) {
+					starve[j] = configReader.nextInt();
+				}
+				else {
+					Configs.setToDefaults();
+				}
 			}
-			else {
-				Configs.setToDefaults();
-			}
-		}
-		if (configReader.next().equals("starve")) {
 			configReader.nextLine();
-		}
 		
-		for (int k = 0; k < numberOfNames; k++) {
-			if (configReader.hasNextInt()) {
-				breed[k] = configReader.nextInt();
+			for (int k = 0; k < numberOfNames; k++) {
+				if (configReader.hasNextInt()) {
+					breed[k] = configReader.nextInt();
+				}
+				else {
+					Configs.setToDefaults();
+				}
 			}
-			else {
-				Configs.setToDefaults();
-			}
-		}
-		if (configReader.next().equals("breed")) {
 			configReader.nextLine();
+			configReader.close();
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException();
 		}
 	}
 	
