@@ -110,7 +110,7 @@ public class AutomataSimulator implements SimulatorInterface {
 				}
 			}
 			configReader.nextLine();
-		
+
 			for (int k = 0; k < numberOfNames; k++) {
 				if (configReader.hasNextInt()) {
 					breed[k] = configReader.nextInt();
@@ -125,15 +125,15 @@ public class AutomataSimulator implements SimulatorInterface {
 			throw new IllegalArgumentException();
 		}
 	}
-	
+
 	public void step() {
 		
 	}
-	
+
 	public PaintedLocation[][] getView() {
 		return new PaintedLocation[0][0];
 	}
-	 
+
 	public String[] getNames() {
 		return names;
 	}

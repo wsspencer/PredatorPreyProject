@@ -147,4 +147,45 @@ public class AnimalTest {
 		//checks that the time since last meal was incremented for wampa
 		assertEquals(wampa.getTimeSinceLastMeal(), 1);
 	}
+	
+	/**
+	 * A test method for testing canAct() 
+	 */
+	@Test
+	public void testCanAct() {
+		Animal rancor = new PurePredator('R');
+		assertTrue(rancor.canAct());
+	}
+	
+	/**
+	 * A test method for testing the eat method
+	 */
+	@Test
+	public void testEat() {
+		Animal rancor = new PurePredator('R');
+		EcoGrid grid = new Ecosystem(5, 5);
+		Location preyLocation = new Location (3, 3);
+		Location predLocation = new Location(2, 3);
+		rancor.eat(preyLocation, grid);
+		assertTrue(grid.isEmpty(preyLocation));
+	}
+	
+	/**
+	 * A test method for testing the enable method
+	 */
+	@Test
+	public void testEnable() {
+		Animal rancor = new PurePredator('R');
+		EcoGrid grid = new Ecosystem(5, 5);
+		Location rancorLocation = new Location(3, 4);
+		//since rancor starts enabled, we must disable first it to test that the enabling method works
+		rancor.disable();
+		rancor.enable();
+		//test that the rancor can move after being re-enabled
+		rancor.move(rancorLocation, grid);
+		
+		//test that the rancor moved
+		assertTrue(grid.isEmpty(rancorLocation));
+		
+	}
 }
