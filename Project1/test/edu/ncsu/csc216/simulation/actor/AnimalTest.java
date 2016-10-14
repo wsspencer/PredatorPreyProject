@@ -181,7 +181,8 @@ public class AnimalTest {
 		//since rancor starts enabled, we must disable first it to test that the enabling method works
 		rancor.disable();
 		rancor.enable();
-		//test that the rancor can move after being re-enabled
+		//test that the rancor can move after being re-enabled (also tests how it reacts to moving when at the edge
+		//of the array
 		rancor.move(rancorLocation, grid);
 		
 		//test that the rancor moved

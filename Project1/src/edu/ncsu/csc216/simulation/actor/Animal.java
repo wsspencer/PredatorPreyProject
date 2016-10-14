@@ -15,7 +15,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 public abstract class Animal {
 	private int timeSinceLastMeal = 0;
 	private int timeSinceLastBreed = 0; 
-	private boolean canActThisStep;
+	private boolean canActThisStep = false;
 	private char symbol;
 	private boolean alive = true;
 	private static int seed;
@@ -51,6 +51,9 @@ public abstract class Animal {
 	}
 	
 	protected boolean canAct() {
+		if (alive = true) {
+			canActThisStep = true;
+		}
 		return canActThisStep;
 	}
 	
@@ -93,25 +96,33 @@ public abstract class Animal {
 			//go west
 			positionFacts.remove(position);
 			position = positionFacts.dueWest(position);
-			positionFacts.add(this, position);
+			if (positionFacts.isEmpty(position)) {
+				positionFacts.add(this, position);
+			}
 		}
 		if (direction == 1) {
 			//go north
 			positionFacts.remove(position);
 			position = positionFacts.dueNorth(position);
-			positionFacts.add(this, position);
+			if (positionFacts.isEmpty(position)) {
+				positionFacts.add(this, position);
+			}
 		}
 		if (direction == 2) {
 			//go east
 			positionFacts.remove(position);
 			position = positionFacts.dueEast(position);
-			positionFacts.add(this, position);
+			if (positionFacts.isEmpty(position)) {
+				positionFacts.add(this, position);				
+			}
 		}
 		if (direction == 3) {
 			//go south
 			positionFacts.remove(position);
 			position = positionFacts.dueSouth(position);
-			positionFacts.add(this, position);
+			if (positionFacts.isEmpty(position)) {
+				positionFacts.add(this, position);	
+			}
 		}
 	}
 	
