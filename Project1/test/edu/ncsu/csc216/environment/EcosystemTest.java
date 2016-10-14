@@ -66,14 +66,14 @@ public class EcosystemTest {
 		Location location = new Location(2, 2);
 		grid.add(rancor, location);
 		
-		assertEquals(grid.dueNorth(location).getCol(), 1);
+		assertEquals(grid.dueNorth(location).getCol(), 3);
 		assertEquals(grid.dueNorth(location).getRow(), 2);
 		assertEquals(grid.dueEast(location).getCol(), 2);
-		assertEquals(grid.dueEast(location).getRow(), 3);
-		assertEquals(grid.dueSouth(location).getCol(), 3);
+		assertEquals(grid.dueEast(location).getRow(), 1);
+		assertEquals(grid.dueSouth(location).getCol(), 1);
 		assertEquals(grid.dueSouth(location).getRow(), 2);
 		assertEquals(grid.dueWest(location).getCol(), 2);
-		assertEquals(grid.dueWest(location).getRow(), 1);
+		assertEquals(grid.dueWest(location).getRow(), 3);
 		
 	}
 	

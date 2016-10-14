@@ -49,29 +49,29 @@ public class Ecosystem implements EcoGrid {
 			boolean threeCheck = false;
 			
 			if (startDirection == 0) {
-				if (isEmpty(new Location(position.getRow() - 1, position.getCol()))) {
-					return new Location(position.getRow() - 1, position.getCol());
+				if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
+					return new Location(position.getRow() + 1, position.getCol());
 				}
 				zeroCheck = true;
 			}
 
 			if (startDirection == 1) {
-				if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
-					return new Location(position.getRow(), position.getCol() - 1);
+				if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
+					return new Location(position.getRow(), position.getCol() + 1);
 				}		
 				oneCheck = true;
 			}
 
 			if (startDirection == 2) {
-				if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
-					return new Location(position.getRow() + 1, position.getCol());
+				if (isEmpty(new Location(position.getRow() - 1, position.getCol()))) {
+					return new Location(position.getRow() - 1, position.getCol());
 				}			
 				twoCheck = true;
 			}
 			
 			if (startDirection == 3) {
-				if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
-					return new Location(position.getRow(), position.getCol() + 1);
+				if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
+					return new Location(position.getRow(), position.getCol() - 1);
 				}	
 				threeCheck = true;
 				//resets startDirection to start the clockwise counting
@@ -90,19 +90,19 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Location dueNorth(Location x) {
-		return new Location(x.getRow(), x.getCol() - 1);
-	}
-	
-	public Location dueSouth(Location x) {
 		return new Location(x.getRow(), x.getCol() + 1);
 	}
 	
+	public Location dueSouth(Location x) {
+		return new Location(x.getRow(), x.getCol() - 1);
+	}
+	
 	public Location dueEast(Location x) {
-		return new Location(x.getRow() + 1, x.getCol());
+		return new Location(x.getRow() - 1, x.getCol());
 	}
 	
 	public Location dueWest(Location x) {
-		return new Location(x.getRow() - 1, x.getCol());
+		return new Location(x.getRow() + 1, x.getCol());
 	}
 	
 	public Animal[][] getMap() {
