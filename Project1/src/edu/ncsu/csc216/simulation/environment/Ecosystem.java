@@ -9,16 +9,16 @@ public class Ecosystem implements EcoGrid {
 	
 	private int maxCols;
 	
-	Animal[][] grid; 
+	private Animal[][] grid; 
 	
 	public Ecosystem(int maxRows, int maxCols) {
 		this.maxRows = maxRows;
 		this.maxCols = maxCols;
-		this.grid = new Animal[this.maxRows][this.maxCols];
+		getMap();
 	}
 	
 	public boolean isEmpty(Location location) {
-		if (this.getItemAt(location).getSymbol() == '.') {
+		if (this.getItemAt(location) == null) {
 			return true;
 		} 
 
@@ -30,48 +30,48 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public void remove(Location location) {
-		this.grid[location.getRow()][location.getCol()] = null;
+		this.getMap()[location.getRow()][location.getCol()] = null;
 	}
 	
 	public void add(Animal x, Location location) {
 		if (this.isEmpty(location)) {
-			this.grid[location.getRow()][location.getCol()] = x;
+			this.getMap()[location.getRow()][location.getCol()] = x;
 		}
 	}
 	
 	public Location findFirstEmptyNeighbor(Location position, int startDirection) {
+		//initilized direction checks
+		boolean zeroCheck = false;
+		boolean oneCheck = false;
+		boolean twoCheck = false;
+		boolean threeCheck = false;		
 		
 		for (int i = 0; i <= 3; i++) {
-			//initilized direction checks
-			boolean zeroCheck = false;
-			boolean oneCheck = false;
-			boolean twoCheck = false;
-			boolean threeCheck = false;
 			
 			if (startDirection == 0) {
-				if (isEmpty(new Location(position.getRow() + 1, position.getCol()))) {
-					return new Location(position.getRow() + 1, position.getCol());
+				if (isEmpty(dueWest(position))) {
+					return dueWest(position);
 				}
 				zeroCheck = true;
 			}
 
 			if (startDirection == 1) {
-				if (isEmpty(new Location(position.getRow(), position.getCol() + 1))) {
-					return new Location(position.getRow(), position.getCol() + 1);
+				if (isEmpty(dueNorth(position))) {
+					return dueNorth(position);
 				}		
 				oneCheck = true;
 			}
 
 			if (startDirection == 2) {
-				if (isEmpty(new Location(position.getRow() - 1, position.getCol()))) {
-					return new Location(position.getRow() - 1, position.getCol());
+				if (isEmpty(dueEast(position))) {
+					return dueEast(position);
 				}			
 				twoCheck = true;
 			}
 			
 			if (startDirection == 3) {
-				if (isEmpty(new Location(position.getRow(), position.getCol() - 1))) {
-					return new Location(position.getRow(), position.getCol() - 1);
+				if (isEmpty(dueSouth(position))) {
+					return dueSouth(position);
 				}	
 				threeCheck = true;
 				//resets startDirection to start the clockwise counting
@@ -106,6 +106,7 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Animal[][] getMap() {
+		grid = new Animal[maxRows][maxCols];
 		return grid;
 	}
 	

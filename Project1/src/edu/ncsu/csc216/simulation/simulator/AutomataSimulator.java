@@ -30,7 +30,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private static final char EMPTY = '.';
 	
-	private EcoGrid simpleSystem; 
+	private EcoGrid simpleSystem = new Ecosystem(SIZE, SIZE); 
 	
 	/**
 	 * Constructor method for reading in initial file which is styled as a line for number of species; then a line with the 
@@ -51,7 +51,7 @@ public class AutomataSimulator implements SimulatorInterface {
 			}
 			else {
 				fileScanner.close();
-				throw new IllegalArgumentException("File formatted incorrectly");
+				throw new IllegalArgumentException("File formatted incorrectly"); 
 			}
 			
 			symbol = new char[numberOfNames];
@@ -81,7 +81,8 @@ public class AutomataSimulator implements SimulatorInterface {
 			throw new IllegalArgumentException();
 		}
 		///do something with map created above
-		simpleSystem = new Ecosystem(SIZE, SIZE);
+		
+		simpleSystem.getMap();
 		
 	}
 	

@@ -10,7 +10,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  * This is the parent class of the different classes of animals which represents an abstract class of their shi
  * 
  * @author Scott Spencer
- *
+ * 
  */
 public abstract class Animal {
 	private int timeSinceLastMeal = 0;
@@ -18,7 +18,7 @@ public abstract class Animal {
 	private boolean canActThisStep = false;
 	private char symbol;
 	private boolean alive = true;
-	private static int seed;
+	private static int seed; 
 	private static Random randomGenerator = new Random();
 	
 	public Animal(char symbol) {
