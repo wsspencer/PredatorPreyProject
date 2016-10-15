@@ -90,19 +90,19 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Location dueNorth(Location x) {
-		return new Location(x.getRow() + 1, x.getCol());
-	}
-	
-	public Location dueSouth(Location x) {
 		return new Location(x.getRow() - 1, x.getCol());
 	}
 	
+	public Location dueSouth(Location x) {
+		return new Location(x.getRow() + 1, x.getCol());
+	}
+	
 	public Location dueEast(Location x) {
-		return new Location(x.getRow(), x.getCol() - 1);
+		return new Location(x.getRow(), x.getCol() + 1);
 	}
 	
 	public Location dueWest(Location x) {
-		return new Location(x.getRow(), x.getCol() + 1);
+		return new Location(x.getRow(), x.getCol() - 1);
 	}
 	
 	public Animal[][] getMap() {
