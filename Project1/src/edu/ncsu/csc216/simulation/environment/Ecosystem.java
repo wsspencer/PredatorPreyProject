@@ -89,6 +89,8 @@ public class Ecosystem implements EcoGrid {
 		return null;
 	}
 
+	//IMPORTANT CONCEPT:  The screen scrolls in all 4 directions.  So due North at the northernmost point will point to 
+	//the block in the same column on the southern-most point. (Think OG arcade Mario Bros.)
 	public Location dueNorth(Location x) {
 		if (x.getRow() == 0) {
 			return new Location(this.maxRows - 1, x.getCol());
@@ -126,7 +128,13 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public void buryTheDead() {
-		
+		for (int i = 0; i < this.maxCols; i++) {
+			for (int j = 0; j < this.maxRows; j++) {
+				if (!this.grid[j][i].isAlive()) {
+					this.grid[j][i] = null;
+				}
+			}
+		}
 	}
 
 }
