@@ -24,62 +24,59 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private int numberOfNames = 0;
 	
-	private String[] names = {};
+	private String[] names;
 	
-	private char[] symbol = {};
+	private char[] symbol;
 	
 	private static final char EMPTY = '.';
 	
 	private EcoGrid simpleSystem; 
 	
 	/**
-	 * Constructor method for reading in intial file which is styled as a line for number of species; then a line with the 
+	 * Constructor method for reading in initial file which is styled as a line for number of species; then a line with the 
 	 * symbol and name of each species; followed by the outline of the initial state of the ecosystem (with the symbol of a 
 	 * species representing that species and a "." representing an empty space.
 	 * @param initFileName the filename of the initial file the program needs to run
 	 */
 	public AutomataSimulator(String initFileName) {
 		try {
-			Scanner filereader = new Scanner(new File(initFileName));
-			String line;
-			
-			//checks that (and sets numberOfNames to it if so) the file's first line is an integer
-			if (filereader.hasNextInt()) {
-				if (filereader.nextInt() >= THRESHOLD) {
-					numberOfNames = filereader.nextInt();
-				}
-				else {
-					filereader.close();
-					throw new IllegalArgumentException();
-				}
+			File initFile = new File(initFileName);
+			Scanner fileScanner = new Scanner(initFile);
+			char[][] animals = new char[SIZE][SIZE];
+			int count = 0;
+			int gridCount = 0;
+		
+			if (fileScanner.hasNextInt()) {
+				numberOfNames = fileScanner.nextInt();
 			}
 			else {
-				filereader.close();
-				throw new IllegalArgumentException();
-			}
-		 
-			//runs loop "numberOfNames" amount of times, and sets symbol and name arrays at index of loopcount to the 
-			//two tokens of this line
-			names = new String[numberOfNames];
-			symbol = new char[numberOfNames];
-		
-			for (int i = 0; i < numberOfNames; i++) {
-				filereader.nextLine();
-				
-				symbol[i] = filereader.next().charAt(0);
-				names[i] = filereader.next();
+				fileScanner.close();
+				throw new IllegalArgumentException("File formatted incorrectly");
 			}
 			
-			//runs loop while file has another line, and reads in the given ecosystem as it is written
-			char[][] map = new char[20][20];
-			while (filereader.hasNextLine()) {
-				line = filereader.nextLine();
-				//divide by 20 for the column because it will return a whole integer and it's a 20x20 grid
-				for (int j = 0; j < line.length(); j++) {
-					map[j][j / 20] = line.charAt(j);
-				}
+			symbol = new char[numberOfNames];
+			names = new String[numberOfNames];
+			fileScanner.nextLine();
+			
+			while (fileScanner.hasNextLine() && count < numberOfNames) {
+				
+				String line = fileScanner.nextLine();
+					
+				symbol[count] = line.charAt(0);
+				names[count] = line.substring(1, line.length()).trim();
+					
+				count++;	
 			}
-			filereader.close();
+			while (fileScanner.hasNextLine() && count >= numberOfNames - 1) {
+				String line = fileScanner.nextLine();
+				
+				for (int i = 0; i < line.length(); i++) {
+					animals[i][gridCount] = line.charAt(i);
+				}
+				gridCount++;
+			}
+			fileScanner.close();
+			
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException();
 		}
@@ -100,10 +97,10 @@ public class AutomataSimulator implements SimulatorInterface {
 			int[] breed = new int[3];
 		
 			//Reads in the three lines of the configuration file.  Sets to defaults if they're awry
-			for (int i = 0; i < numberOfNames; i++) {
+			for (int i = 0; i < 3; i++) {
 				if (configReader.hasNext()) {
 					//ATTN: need to change to just reading hexidecimal to color...can't figure it out yet...
-					colors[i] = Color.decode("0x" + configReader.next());
+					colors[i] = Color.decode("#" + configReader.next());
 				}
 				else {
 					Configs.setToDefaults();
