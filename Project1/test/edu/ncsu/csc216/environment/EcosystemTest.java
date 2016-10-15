@@ -33,7 +33,9 @@ public class EcosystemTest {
 		grid.add(wampa, wampaLocation);
 		
 		//finds first empty neighbor when only one space is taken up
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getRow(), grid.dueWest(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getRow(), grid.dueNorth(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getCol(), grid.dueNorth(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueNorth(emptyLocation).getRow());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueNorth(emptyLocation).getCol());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getRow(), grid.dueEast(emptyLocation).getRow());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getCol(), grid.dueSouth(emptyLocation).getCol());
@@ -79,15 +81,13 @@ public class EcosystemTest {
 	@Test
 	public void testBuryTheDead() {
 		EcoGrid grid = new Ecosystem(5, 5);
-		Animal rancor = new PurePredator('R');
 		Animal wampa = new PredatorPrey('W');
-		Location preyPosition = new Location(3, 3);
-		Location predPosition = new Location(2, 3);
-		grid.add(rancor, predPosition);
-		grid.add(wampa, preyPosition);
+		Location position = new Location(3, 3);
+		grid.add(wampa, position);
+
 		grid.buryTheDead();
 	
-		assertTrue(grid.isEmpty(preyPosition));
+		assertTrue(grid.isEmpty(position));
 	}
 	
 	/**
