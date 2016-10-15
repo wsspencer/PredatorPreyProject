@@ -35,10 +35,10 @@ public class EcosystemTest {
 		//finds first empty neighbor when only one space is taken up 
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getRow(), grid.dueWest(emptyLocation).getRow());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getCol(), grid.dueWest(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueEast(emptyLocation).getRow());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueEast(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueNorth(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueNorth(emptyLocation).getCol());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getCol(), grid.dueEast(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), grid.dueSouth(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), grid.dueWest(emptyLocation).getRow());
 		
 		//finds first empty neighbor when all but one space is taken up
 		grid.add(wampa, new Location(1, 2)); 
@@ -66,24 +66,24 @@ public class EcosystemTest {
 		
 		assertEquals(grid.dueEast(location).getRow(), 1);
 		assertEquals(grid.dueEast(location).getCol(), 2);
-		assertEquals(grid.dueNorth(location).getRow(), 2);
+		assertEquals(grid.dueNorth(location).getRow(), 0);
 		assertEquals(grid.dueNorth(location).getCol(), 1);
 		assertEquals(grid.dueWest(location).getRow(), 1);
 		assertEquals(grid.dueWest(location).getCol(), 0);
-		assertEquals(grid.dueSouth(location).getRow(), 0);
+		assertEquals(grid.dueSouth(location).getRow(), 2);
 		assertEquals(grid.dueSouth(location).getCol(), 1);
 		
 		//tests that dueDirection will return its own index at a column or row if it is on the edge of the grid in the 
 		//direction in question.
 		EcoGrid gridMax = new Ecosystem(3, 3);
-		Location northNorth = new Location(2, 1);
-		assertEquals(gridMax.dueNorth(northNorth).getRow(), 0);
-		Location southSouth = new Location(0, 1);
-		assertEquals(gridMax.dueSouth(southSouth).getRow(), 2);
+		Location northNorth = new Location(0, 1);
+		assertEquals(gridMax.dueNorth(northNorth).getRow(), 1);
+		Location southSouth = new Location(2, 1);
+		assertEquals(gridMax.dueSouth(southSouth).getRow(), 1);
 		Location eastEast = new Location(1, 2);
-		assertEquals(gridMax.dueEast(eastEast).getCol(), 0);
+		assertEquals(gridMax.dueEast(eastEast).getCol(), 1);
 		Location westWest = new Location(1, 0);
-		assertEquals(gridMax.dueWest(westWest).getCol(), 2);
+		assertEquals(gridMax.dueWest(westWest).getCol(), 1);
 		
 	}
 	
