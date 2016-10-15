@@ -35,23 +35,23 @@ public class EcosystemTest {
 		//finds first empty neighbor when only one space is taken up 
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getRow(), grid.dueWest(emptyLocation).getRow());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getCol(), grid.dueWest(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueEast(emptyLocation).getRow());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueEast(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueNorth(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueNorth(emptyLocation).getCol());
 		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getCol(), grid.dueEast(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), grid.dueSouth(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), grid.dueWest(emptyLocation).getRow());
 		
 		//finds first empty neighbor when all but one space is taken up
-		grid.add(wampa, new Location(1, 2));
+		grid.add(wampa, new Location(1, 2)); 
 		grid.add(wampa, new Location(2, 3));
 		
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getCol(), grid.dueEast(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueEast(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getCol(), grid.dueEast(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getCol(), grid.dueEast(emptyLocation).getCol());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getRow(), grid.dueEast(emptyLocation).getRow());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueEast(emptyLocation).getRow());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getRow(), grid.dueEast(emptyLocation).getRow());
-		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), grid.dueEast(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getCol(), grid.dueWest(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getCol(), grid.dueWest(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getCol(), grid.dueWest(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getCol(), grid.dueWest(emptyLocation).getCol());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 0).getRow(), grid.dueWest(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 1).getRow(), grid.dueWest(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 2).getRow(), grid.dueWest(emptyLocation).getRow());
+		assertEquals(grid.findFirstEmptyNeighbor(emptyLocation, 3).getRow(), grid.dueWest(emptyLocation).getRow());
 	} 
 	
 	/**
@@ -64,14 +64,14 @@ public class EcosystemTest {
 		Location location = new Location(1, 1);
 		grid.add(rancor, location);
 		
-		assertEquals(grid.dueEast(location).getCol(), 0);
+		assertEquals(grid.dueEast(location).getCol(), 2);
 		assertEquals(grid.dueEast(location).getRow(), 1);
 		assertEquals(grid.dueNorth(location).getCol(), 1);
-		assertEquals(grid.dueNorth(location).getRow(), 2);
-		assertEquals(grid.dueWest(location).getCol(), 2);
+		assertEquals(grid.dueNorth(location).getRow(), 0);
+		assertEquals(grid.dueWest(location).getCol(), 0);
 		assertEquals(grid.dueWest(location).getRow(), 1);
 		assertEquals(grid.dueSouth(location).getCol(), 1);
-		assertEquals(grid.dueSouth(location).getRow(), 0);
+		assertEquals(grid.dueSouth(location).getRow(), 2);
 		
 	}
 	
