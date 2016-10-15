@@ -20,7 +20,7 @@ public class PurePrey extends Animal {
 
 	@Override
 	public void act(Location position, EcoGrid positionFacts) {
-		
+
 	}
 
 	@Override

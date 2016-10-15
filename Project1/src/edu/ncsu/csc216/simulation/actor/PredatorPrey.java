@@ -19,7 +19,7 @@ public class PredatorPrey extends Animal {
 	@Override
 	public void act(Location position, EcoGrid positionFacts) {
 		//TODO 
-	
+		
 	}
 
 	@Override
