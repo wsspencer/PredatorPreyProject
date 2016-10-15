@@ -58,7 +58,7 @@ public class AutomataSimulator implements SimulatorInterface {
 			names = new String[numberOfNames];
 			fileScanner.nextLine();
 			
-			while (fileScanner.hasNextLine() && count < numberOfNames) {
+			while (fileScanner.hasNextLine() && count < numberOfNames && numberOfNames > THRESHOLD) {
 				
 				String line = fileScanner.nextLine();
 					
