@@ -16,7 +16,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private static final int SIZE = 20;
 	
-	private static final int THRESHOLD = 20;
+	private static final int THRESHOLD = 2;
 	
 	private static final String SIZE_ERROR_MESSAGE = "";
 	
@@ -45,7 +45,13 @@ public class AutomataSimulator implements SimulatorInterface {
 			
 			//checks that (and sets numberOfNames to it if so) the file's first line is an integer
 			if (filereader.hasNextInt()) {
-				numberOfNames = filereader.nextInt();
+				if (filereader.nextInt() >= THRESHOLD) {
+					numberOfNames = filereader.nextInt();
+				}
+				else {
+					filereader.close();
+					throw new IllegalArgumentException();
+				}
 			}
 			else {
 				filereader.close();
@@ -78,33 +84,26 @@ public class AutomataSimulator implements SimulatorInterface {
 			throw new IllegalArgumentException();
 		}
 		///do something with map created above
-		simpleSystem = new Ecosystem(SIZE, THRESHOLD);
+		simpleSystem = new Ecosystem(SIZE, SIZE);
 		
 	}
 	
 	public AutomataSimulator(String initFileName, String configFileName) {
+		//call to other constructor to take care of initial file functionality
 		this(initFileName);
+		
+		//read in the second (configuration) file
 		try {
 			Scanner configReader = new Scanner(new File(configFileName));
 			Color[] colors = new Color[3];
 			int[] starve = new int[3];
 			int[] breed = new int[3];
-			String color;
 		
 			//Reads in the three lines of the configuration file.  Sets to defaults if they're awry
 			for (int i = 0; i < numberOfNames; i++) {
 				if (configReader.hasNext()) {
 					//ATTN: need to change to just reading hexidecimal to color...can't figure it out yet...
-					color = configReader.next();
-					if (color.equals("FF0000")) {
-						colors[i] = Color.green;	
-					}
-					if (color.equals("00FF00")) {
-						colors[i] = Color.orange;
-					}
-					if (color.equals("0000FF")) {
-						colors[i] = Color.red;
-					}
+					colors[i] = Color.decode("0x" + configReader.next());
 				}
 				else {
 					Configs.setToDefaults();
@@ -140,18 +139,18 @@ public class AutomataSimulator implements SimulatorInterface {
 	public void step() {
 		//make a animal array out of simpleSystem and enable each of its members
 		Animal[][] creature = simpleSystem.getMap();
-		for (int i = 0; i < creature.length; i++) {
-			for (int j = 0; j < creature.length; j++) {
-				if (creature[i][j] != null) {
-					creature[i][j].enable();
+		for (int i = 0; i < SIZE; i++) {
+			for (int j = 0; j < SIZE; j++) {
+				if (creature[j][i] != null) {
+					creature[j][i].enable();
 				}
 			}
 		}
 		//go through and have each animal in the grid act.  Burying the dead along the way
 		for (int i = 0; i < creature.length; i++) {
 			for (int j = 0; j < creature.length; j++) {
-				if (creature[i][j] != null && creature[i][j].isAlive()) {
-					creature[i][j].act(new Location(i, j), simpleSystem);
+				if (creature[j][i] != null && creature[i][j].isAlive()) {
+					creature[j][i].act(new Location(i, j), simpleSystem);
 				}
 				simpleSystem.buryTheDead();
 			}
@@ -159,7 +158,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	}
 
 	public PaintedLocation[][] getView() {
-		return new PaintedLocation[SIZE][THRESHOLD];
+		return new PaintedLocation[SIZE][SIZE];
 	}
 
 	public String[] getNames() {

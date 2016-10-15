@@ -18,7 +18,7 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public boolean isEmpty(Location location) {
-		if (this.getItemAt(location) == null) {
+		if (this.getItemAt(location).getSymbol() == '.') {
 			return true;
 		} 
 
