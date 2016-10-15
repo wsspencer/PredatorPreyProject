@@ -93,28 +93,28 @@ public class Ecosystem implements EcoGrid {
 		if (x.getRow() == this.maxRows - 1) {
 			return new Location(x.getRow(), x.getCol());
 		}
-		return new Location(x.getRow() + 1, x.getCol());
+		return new Location(x.getRow() - 1, x.getCol());
 	}
 	
 	public Location dueSouth(Location x) {
 		if (x.getRow() == 0) {
 			return new Location(x.getRow(), x.getCol());
 		}
-		return new Location(x.getRow() - 1, x.getCol());
+		return new Location(x.getRow() + 1, x.getCol());
 	}
 	
 	public Location dueEast(Location x) {
 		if (x.getCol() == this.maxCols - 1) {
 			return new Location(x.getRow(), x.getCol());
 		}
-		return new Location(x.getRow(), x.getCol() + 1);
+		return new Location(x.getRow(), x.getCol() - 1);
 	}
 	
 	public Location dueWest(Location x) {
 		if (x.getCol() == 0) {
 			return new Location(x.getRow(), x.getCol());
 		}
-		return new Location(x.getRow(), x.getCol() - 1);
+		return new Location(x.getRow(), x.getCol() + 1);
 	}
 	
 	public Animal[][] getMap() {
