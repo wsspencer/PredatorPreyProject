@@ -77,13 +77,13 @@ public class EcosystemTest {
 		//direction in question.
 		EcoGrid gridMax = new Ecosystem(3, 3);
 		Location northNorth = new Location(0, 1);
-		assertEquals(gridMax.dueNorth(northNorth).getRow(), 1);
+		assertEquals(gridMax.dueNorth(northNorth).getRow(), 2);
 		Location southSouth = new Location(2, 1);
-		assertEquals(gridMax.dueSouth(southSouth).getRow(), 1);
+		assertEquals(gridMax.dueSouth(southSouth).getRow(), 0);
 		Location eastEast = new Location(1, 2);
-		assertEquals(gridMax.dueEast(eastEast).getCol(), 1);
+		assertEquals(gridMax.dueEast(eastEast).getCol(), 0);
 		Location westWest = new Location(1, 0);
-		assertEquals(gridMax.dueWest(westWest).getCol(), 1);
+		assertEquals(gridMax.dueWest(westWest).getCol(), 2);
 		
 	}
 	
