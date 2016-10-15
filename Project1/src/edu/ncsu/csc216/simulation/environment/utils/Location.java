@@ -6,9 +6,9 @@ public class Location {
 	
 	private int column;
 	
-	public Location(int row, int column) {
+	public Location(int row, int col) {
 		this.row = row; 
-		this.column = column;
+		this.column = col;
 	} 
 	
 	public int getRow() {
