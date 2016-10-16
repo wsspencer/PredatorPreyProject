@@ -6,12 +6,6 @@ package edu.ncsu.csc216.simulation.simulator;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import edu.ncsu.csc216.simulation.actor.Animal;
-import edu.ncsu.csc216.simulation.actor.PurePredator;
-import edu.ncsu.csc216.simulation.environment.EcoGrid;
-import edu.ncsu.csc216.simulation.environment.Ecosystem;
-import edu.ncsu.csc216.simulation.environment.utils.Location;
-
 /**
  * @author wspencer
  * 
