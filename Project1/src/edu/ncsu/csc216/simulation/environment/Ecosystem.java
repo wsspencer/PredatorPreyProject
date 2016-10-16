@@ -48,7 +48,7 @@ public class Ecosystem implements EcoGrid {
 		for (int i = 0; i <= 3; i++) {
 			
 			if (startDirection == 0) {
-				if (isEmpty(dueWest(position))) {
+				if (isEmpty(dueWest(position))) { 
 					return dueWest(position);
 				}
 				zeroCheck = true;

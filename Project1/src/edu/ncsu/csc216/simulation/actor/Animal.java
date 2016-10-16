@@ -12,7 +12,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  * @author Scott Spencer
  * 
  */
-public abstract class Animal {  
+public abstract class Animal {   
 	private int timeSinceLastMeal = 0;
 	private int timeSinceLastBreed = 0; 
 	private boolean canActThisStep = false;
@@ -38,11 +38,11 @@ public abstract class Animal {
 	}
 	
 	public void enable() {
-		
+		canActThisStep = true;
 	}
 	
 	public void disable() {
-		
+		canActThisStep = false;
 	}
 	
 	protected void die() {
@@ -51,7 +51,6 @@ public abstract class Animal {
 	}
 	
 	protected boolean canAct() {
-		canActThisStep = false;
 		return canActThisStep;
 	}
 	
@@ -71,10 +70,17 @@ public abstract class Animal {
 		timeSinceLastBreed++;
 	} 
 	
+	/**
+	 * 
+	 * @param position the position 
+	 * @param positionFacts the ecosystem grid
+	 * @return boolean of whether or not the animal will breed
+	 */
 	protected boolean breed(Location position, EcoGrid positionFacts) {
 		if (positionFacts.getItemAt(position).getSymbol() == this.symbol) {
 			if (pastBreedTime(getTimeSinceLastBreed())) {
-				timeSinceLastBreed = 0;
+				this.timeSinceLastBreed = 0;
+				positionFacts.add(makeNewBaby(), positionFacts.findFirstEmptyNeighbor(position, 0));
 				return true;
 			}
 			incrementTimeSinceLastBreed();
@@ -126,9 +132,15 @@ public abstract class Animal {
 	
 	protected boolean eat(Location position, EcoGrid positionFacts) {
 		if (this.canActThisStep) {
-			
+			if (positionFacts.getItemAt(position).getFoodChainRank() < this.getFoodChainRank()) {
+				this.timeSinceLastMeal = 0;
+				positionFacts.remove(position);
+				this.move(position, positionFacts);
+				return true;
+			}
 		}
-		return true;
+		incrementTimeSinceLastMeal();
+		return false;
 	}
 	
 	public abstract Color getColor();

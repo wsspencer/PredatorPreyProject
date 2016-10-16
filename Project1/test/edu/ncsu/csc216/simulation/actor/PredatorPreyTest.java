@@ -15,7 +15,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
  * @author wspencer
- *
+ * 
  */
 public class PredatorPreyTest {
 

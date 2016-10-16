@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
-
+ 
 public class PurePredator extends Animal {
 	
 	private boolean bred = false;
@@ -14,6 +14,8 @@ public class PurePredator extends Animal {
 	private int timeSinceLastBreed = 0;
 	
 	private int timeSinceLastAte = 0;
+	
+	private int age = 0;
 
 	public PurePredator(char symbol) {
 		super(symbol);
@@ -28,6 +30,11 @@ public class PurePredator extends Animal {
 	public void act(Location position, EcoGrid positionFacts) {
 		bred = false;
 		ate = false;
+		
+		//if the animal is a baby, it is disabled)
+		if (this.age == 0) {
+			this.disable();
+		}
 		
 		//checks that the animal can act
 		//animal attempts to eat
@@ -73,6 +80,7 @@ public class PurePredator extends Animal {
 		}
 		
 		this.disable();		
+		this.age++;
 	}
 
 	@Override
