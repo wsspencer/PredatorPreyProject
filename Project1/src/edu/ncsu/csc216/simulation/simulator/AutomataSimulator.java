@@ -46,6 +46,8 @@ public class AutomataSimulator implements SimulatorInterface {
 		int count = 0;
 		int gridCount = 0;
 		
+		Configs.setToDefaults();
+		
 		try { 
 			File initFile = new File(initFileName);
 			Scanner fileScanner = new Scanner(initFile);
@@ -62,7 +64,7 @@ public class AutomataSimulator implements SimulatorInterface {
 			names = new String[numberOfNames];
 			fileScanner.nextLine();
 			
-
+ 
 			
 			while (fileScanner.hasNextLine() && count < numberOfNames  && numberOfNames > THRESHOLD) {
 				
@@ -94,23 +96,23 @@ public class AutomataSimulator implements SimulatorInterface {
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
 				if (animals[j][i] == symbol[0])	{
-					simpleSystem.add(new PurePredator(animals[j][i]), new Location(j, i)); 
+					this.simpleSystem.add(new PurePredator(animals[j][i]), new Location(j, i)); 
 				}
 				if (animals[j][i] == symbol[1]) {
-					simpleSystem.add(new PredatorPrey(animals[j][i]), new Location(j, i));
+					this.simpleSystem.add(new PredatorPrey(animals[j][i]), new Location(j, i));
 				}
 				if (animals[j][i] == symbol[2]) {
-					simpleSystem.add(new PredatorPrey(animals[j][i]), new Location(j, i));
+					this.simpleSystem.add(new PredatorPrey(animals[j][i]), new Location(j, i));
 				}
 				if (animals[j][i] == symbol[3]) {
-					simpleSystem.add(new PurePrey(animals[j][i]), new Location(j, i));
+					this.simpleSystem.add(new PurePrey(animals[j][i]), new Location(j, i));
 				}
 				if (animals[j][i] == EMPTY) {
-					simpleSystem.add(null, new Location(j, i));
+					this.simpleSystem.add(null, new Location(j, i));
 				}
 			}
 		}
-		simpleSystem.getMap();
+		this.simpleSystem.getMap();
 	}
 	
 	public AutomataSimulator(String initFileName, String configFileName) {
@@ -164,7 +166,7 @@ public class AutomataSimulator implements SimulatorInterface {
 
 	public void step() {
 		//make a animal array out of simpleSystem and enable each of its members
-		Animal[][] creature = simpleSystem.getMap();
+		Animal[][] creature = this.simpleSystem.getMap();
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
 				if (creature[j][i] != null && creature[j][i].isAlive()) {
@@ -176,21 +178,42 @@ public class AutomataSimulator implements SimulatorInterface {
 		for (int i = 0; i < creature.length; i++) {
 			for (int j = 0; j < creature.length; j++) {
 				if (creature[j][i] != null && creature[j][i].isAlive()) {
-					creature[j][i].act(new Location(j, i), simpleSystem);
+					creature[j][i].act(new Location(j, i), this.simpleSystem);
 				}
 			}
 		} 
 		//do a third grid traversal and clear out dead animals that haven't already been eaten
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
-				simpleSystem.buryTheDead();
+				this.simpleSystem.buryTheDead();
 			}
 		}
 		
 	}
 
 	public PaintedLocation[][] getView() {
-		return new PaintedLocation[SIZE][SIZE];
+		PaintedLocation[][] view = new PaintedLocation[SIZE][SIZE];
+
+		for (int i = 0; i < SIZE; i++) {
+			for (int j = 0; j < SIZE; j++) {
+				if (this.simpleSystem.getItemAt(new Location(j, i)) == null) {
+					view[j][i] = new PaintedLocation(j, i, Color.black, ' ');
+				}
+				else if (this.simpleSystem.getItemAt(new Location(j, i)).getSymbol() == this.symbol[0]) {
+					view[j][i] = new PaintedLocation(j, i, Configs.getPredatorColor(), this.symbol[0]);
+				}
+				else if (this.simpleSystem.getItemAt(new Location(j, i)).getSymbol() == this.symbol[1]) {
+					view[j][i] = new PaintedLocation(j, i, Configs.getMiddleColor(), this.symbol[1]);
+				}
+				else if (this.simpleSystem.getItemAt(new Location(j, i)).getSymbol() == this.symbol[2]) {
+					view[j][i] = new PaintedLocation(j, i, Configs.getMiddleColor(), this.symbol[2]);
+				}
+				else if (this.simpleSystem.getItemAt(new Location(j, i)).getSymbol() == this.symbol[3]) {
+					view[j][i] = new PaintedLocation(j, i, Configs.getPreyColor(), this.symbol[3]);
+				}
+			}
+		}
+		return view;
 	}
 
 	public String[] getNames() {
@@ -198,3 +221,4 @@ public class AutomataSimulator implements SimulatorInterface {
 	}
 
 }
+ 

@@ -6,7 +6,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 public class Ecosystem implements EcoGrid {  
 	
 	private int maxRows;
-	
+	 
 	private int maxCols;
 	
 	private Animal[][] map; 
