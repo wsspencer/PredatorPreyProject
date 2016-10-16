@@ -7,7 +7,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * @author wspencer 
+ * Test Class for testing the AutomataSimulator class
+ * @author wspencer  
  * 
  */ 
 public class AutomataSimulatorTest {

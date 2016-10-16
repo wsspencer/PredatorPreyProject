@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * Test class for testing the location class
  * @author wspencer
  *
  */

@@ -10,11 +10,16 @@ import java.awt.Color;
 import org.junit.Test;
 
 /**
- * @author wspencer
+ * A test class for testing the Configs java class
+ * @author Scott Spencer
  *
  */
 public class ConfigsTest {
 
+	/**
+	 * A test method for setting the configs to their default values
+	 */
+	@SuppressWarnings("static-access")
 	@Test
 	public void testSetToDefaults() {
 		//create a Config variable, set it to default values
@@ -42,6 +47,10 @@ public class ConfigsTest {
 		assertEquals(test.getPredatorStarveTime(), 5);
 	}
 
+	/**
+	 * Test method for testing the method meant to set custom configurations
+	 */
+	@SuppressWarnings("static-access")
 	@Test 
 	public void testCustomConfig() {
 		//create a Config variable, set it to custom values

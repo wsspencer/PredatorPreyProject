@@ -12,6 +12,7 @@ import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
+ * A test class for testing the Animal class
  * @author wspencer
  *
  */

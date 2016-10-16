@@ -14,11 +14,15 @@ import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
  
 /**
+ * Test class for testing actors on the bottom of the food chain
  * @author wspencer
  *
  */
 public class PurePreyTest { 
 
+	/**
+	 * Test method for testing the getColor method
+	 */
 	@Test
 	public void testGetColor() {
 		Animal tribble = new PurePrey('T');
@@ -27,6 +31,9 @@ public class PurePreyTest {
 		assertEquals(tribble.getColor(), Color.green);
 	} 
 	
+	/**
+	 * Test method for testing the act() method
+	 */
 	@Test
 	public void testAct() {
 		//create a grid, animal, and location to test
@@ -95,6 +102,9 @@ public class PurePreyTest {
 		
 	}
 
+	/**
+	 * Test method for testing pastBreedTime method
+	 */
 	@Test 
 	public void testPastBreedTime() {
 		//create an animal variable to work with
@@ -108,6 +118,9 @@ public class PurePreyTest {
 		assertFalse(tribble.pastBreedTime(0));
 	}
 	
+	/**
+	 * Test method for testing makeNewBaby method 
+	 */
 	@Test
 	public void testMakeNewBaby() {
 		//create an animal variable to work with
@@ -118,6 +131,9 @@ public class PurePreyTest {
 		assertEquals(tribble.makeNewBaby().getSymbol(), tribble.getSymbol());
 	}
 	
+	/**
+	 * Test method for testing the getFoodChainRank method
+	 */
 	@Test 
 	public void testGetFoodChainRank() {
 		//create an animal variable to work with

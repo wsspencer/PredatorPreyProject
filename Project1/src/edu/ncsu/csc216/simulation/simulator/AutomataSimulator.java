@@ -15,22 +15,51 @@ import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 import edu.ncsu.csc216.simulation.environment.utils.PaintedLocation;
 
+/**
+ * This is the engine of our automata simulator
+ * @author Scott Spencer
+ *
+ */
 public class AutomataSimulator implements SimulatorInterface {
 	
+	/**
+	 * An instance variable for the size of a dimension of our grid
+	 */
 	private static final int SIZE = 20;
 	
+	/**
+	 * An instance variable for the threshold (minimum) animal ranks value.
+	 */
 	private static final int THRESHOLD = 2;
 	
+	/**
+	 * An instance variable for the size error message
+	 */
 	private static final String SIZE_ERROR_MESSAGE = "";
 	
+	/**
+	 * An instance variable for the threshold error message
+	 */
 	private static final String THRESHOLD_ERROR_MESSAGE = "";
 	
+	/**
+	 * An instance variable for an integer representing the number of names in this grid
+	 */
 	private int numberOfNames = 0;
 	
+	/**
+	 * An instance variable for the names of animals in our grid (String array)
+	 */
 	private String[] names; 
 	
+	/**
+	 * An instance variable for the symbols of animals in our grid (char array)
+	 */
 	private char[] symbol;
 	
+	/**
+	 * An instance variable for the char representation of an empty cell
+	 */
 	private static final char EMPTY = '.';
 	 
 	private EcoGrid simpleSystem = new Ecosystem(SIZE, SIZE); 
@@ -115,6 +144,11 @@ public class AutomataSimulator implements SimulatorInterface {
 		this.simpleSystem.getMap();
 	}
 	
+	/**
+	 * The AutomataSimulator constructor when there are two passed files to be read
+	 * @param initFileName the initial file to construct our grid 
+	 * @param configFileName the configuration file to customize certain constraints 
+	 */
 	public AutomataSimulator(String initFileName, String configFileName) {
 		//call to other constructor to take care of initial file functionality
 		this(initFileName);
@@ -164,6 +198,9 @@ public class AutomataSimulator implements SimulatorInterface {
 		} 
 	}
 
+	/**
+	 * Step method for a single step of automata simulation.
+	 */
 	public void step() {
 		//make a animal array out of simpleSystem and enable each of its members
 		Animal[][] creature = this.simpleSystem.getMap();
@@ -191,6 +228,9 @@ public class AutomataSimulator implements SimulatorInterface {
 		
 	}
 
+	/**
+	 * A PaintedLocation[][] method to return our "view" of the grid (a 2D paintedlocation array)
+	 */
 	public PaintedLocation[][] getView() {
 		PaintedLocation[][] view = new PaintedLocation[SIZE][SIZE];
 
@@ -216,6 +256,9 @@ public class AutomataSimulator implements SimulatorInterface {
 		return view;
 	}
 
+	/**
+	 * The getNames method (a method for returning the names of animals in the ecosystem as a string array)
+	 */
 	public String[] getNames() {
 		return names;
 	}

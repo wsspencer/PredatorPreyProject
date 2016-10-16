@@ -14,11 +14,15 @@ import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
+ * A test class for testing middle of the food chain actors in our simulator
  * @author wspencer
  * 
  */
 public class PredatorPreyTest { 
  
+	/**
+	 * A test method for testing the getColor() method
+	 */
 	@Test
 	public void testGetColor() {
 		Animal wampa = new PredatorPrey('W');
@@ -27,6 +31,9 @@ public class PredatorPreyTest {
 		assertEquals(wampa.getColor(), Color.orange);
 	}
 	
+	/**
+	 * A test method for testing the act() method
+	 */
 	@Test
 	public void testAct() {
 		//create a grid, animal, and location to test
@@ -62,6 +69,9 @@ public class PredatorPreyTest {
 		assertFalse(grid.getItemAt(new Location(3, 3)) == wampa1);
 	}
 
+	/**
+	 * Test method for testing the pastBreedTime method
+	 */
 	@Test 
 	public void testPastBreedTime() {
 		//create an animal variable to work with
@@ -75,6 +85,9 @@ public class PredatorPreyTest {
 		assertFalse(wampa.pastBreedTime(2));
 	}
 	
+	/**
+	 * Test method for testing makeNewBaby method
+	 */
 	@Test
 	public void testMakeNewBaby() {
 		//create an animal variable to work with
@@ -85,6 +98,9 @@ public class PredatorPreyTest {
 		assertEquals(wampa.makeNewBaby().getSymbol(), wampa.getSymbol());
 	}
 	
+	/**
+	 * Test method for testing getFoodChainRank method
+	 */
 	@Test 
 	public void testGetFoodChainRank() {
 		//create an animal variable to work with

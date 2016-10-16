@@ -11,11 +11,15 @@ import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
+ * Test class for testing PurePredator actors
  * @author wspencer
  * 
  */
 public class PurePredatorTest {
 
+	/**
+	 * Test method for testing getColor method
+	 */
 	@Test
 	public void testGetColor() {
 		Animal sarlacc = new PurePredator('S');
@@ -24,6 +28,9 @@ public class PurePredatorTest {
 		assertEquals(sarlacc.getColor(), Color.red);
 	}
 	
+	/**
+	 * Test method for testing the act() method
+	 */
 	@Test
 	public void testAct() {
 		//create a grid, animal, and location to test
@@ -66,6 +73,9 @@ public class PurePredatorTest {
 		assertFalse(grid.getItemAt(new Location(3, 3)) == rancor1);
 	}
 
+	/**
+	 * Test method for testing the pastBreedTime method
+	 */
 	@Test 
 	public void testPastBreedTime() {
 		//create an animal variable to work with
@@ -79,6 +89,9 @@ public class PurePredatorTest {
 		assertFalse(sarlacc.pastBreedTime(13));
 	}
 	
+	/**
+	 * Test method for testing the makeNewBaby method
+	 */
 	@Test
 	public void testMakeNewBaby() {
 		//create an animal variable to work with
@@ -89,6 +102,9 @@ public class PurePredatorTest {
 		assertEquals(sarlacc.makeNewBaby().getSymbol(), sarlacc.getSymbol());
 	}
 	
+	/**
+	 * Test method for testing the getFoodChainRank method
+	 */
 	@Test 
 	public void testGetFoodChainRank() {
 		//create an animal variable to work with

@@ -10,6 +10,7 @@ import java.awt.Color;
 import org.junit.Test;
 
 /**
+ * Test class for testing the PaintedLocation class
  * @author wspencer
  *
  */
