@@ -94,13 +94,18 @@ public class EcosystemTest {
 	 */
 	@Test
 	public void testBuryTheDead() {
-		new AutomataSimulator("test-files/initFile", "test-files/configFile");
+		new AutomataSimulator("test-files/initFile.txt", "test-files/configFile.txt");
 		EcoGrid grid = new Ecosystem(5, 5);
 		Animal tribble = new PurePrey('T');
 		Location position = new Location(3, 3);
 		grid.add(tribble, position);
+		Animal rancor = new PurePredator('R');
+		Location predPosition = new Location(3, 4);
+		grid.add(rancor, predPosition);
 
-		tribble.enable();		
+		rancor.enable();
+		rancor.act(predPosition, grid);
+		tribble.enable();
 		tribble.act(position, grid);
 		
 		grid.buryTheDead();
