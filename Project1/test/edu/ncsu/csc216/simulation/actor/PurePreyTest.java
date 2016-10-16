@@ -35,6 +35,8 @@ public class PurePreyTest {
 		EcoGrid grid = new Ecosystem(25, 25);
 		Location tribble1Location = new Location(4, 21);
 		Location tribble2Location = new Location(5, 21);
+		grid.add(tribble1, tribble1Location);
+		grid.add(tribble2, tribble2Location);
 		
 		tribble1.enable();
 		//make tribbles breed and move
