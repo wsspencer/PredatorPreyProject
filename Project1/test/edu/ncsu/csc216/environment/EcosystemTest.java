@@ -94,7 +94,7 @@ public class EcosystemTest {
 	 */
 	@Test
 	public void testBuryTheDead() {
-		new AutomataSimulator("test-files/initFile.txt", "test-files/configFile.txt");
+		new AutomataSimulator("test-files/initFile", "test-files/configFile");
 		EcoGrid grid = new Ecosystem(5, 5);
 		Animal tribble = new PurePrey('T');
 		Location position = new Location(3, 3);
