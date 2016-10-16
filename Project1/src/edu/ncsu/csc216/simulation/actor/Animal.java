@@ -210,13 +210,11 @@ public abstract class Animal {
 	 * @return boolean the method meant to return whether or not our animal eats.
 	 */
 	protected boolean eat(Location position, EcoGrid positionFacts) {
-		if (this.canActThisStep) {
-			if (positionFacts.getItemAt(position).getFoodChainRank() < this.getFoodChainRank()) {
-				this.timeSinceLastMeal = 0;
-				positionFacts.remove(position);
-				this.move(position, positionFacts);
-				return true;
-			}
+		if (this.canActThisStep && positionFacts.getItemAt(position).getFoodChainRank() < this.getFoodChainRank()) {
+			this.timeSinceLastMeal = 0;
+			positionFacts.remove(position);
+			this.move(position, positionFacts);
+			return true;
 		}
 		incrementTimeSinceLastMeal();
 		return false;

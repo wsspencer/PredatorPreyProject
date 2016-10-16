@@ -17,7 +17,7 @@ import edu.ncsu.csc216.simulation.environment.utils.PaintedLocation;
 
 /**
  * This is the engine of our automata simulator
- * @author Scott Spencer
+ * @author Scott Spencer 
  *
  */
 public class AutomataSimulator implements SimulatorInterface {
@@ -27,7 +27,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	 */
 	private static final int SIZE = 20;
 	
-	/**
+	/** 
 	 * An instance variable for the threshold (minimum) animal ranks value.
 	 */
 	private static final int THRESHOLD = 2;
@@ -35,12 +35,12 @@ public class AutomataSimulator implements SimulatorInterface {
 	/**
 	 * An instance variable for the size error message
 	 */
-	private static final String SIZE_ERROR_MESSAGE = "";
+	private static final String SIZE_ERROR_MESSAGE = "The size of the grid is invalid";
 	
 	/**
 	 * An instance variable for the threshold error message
 	 */
-	private static final String THRESHOLD_ERROR_MESSAGE = "";
+	private static final String THRESHOLD_ERROR_MESSAGE = "The threshold for types of animals is not reached";
 	
 	/**
 	 * An instance variable for an integer representing the number of names in this grid
@@ -103,6 +103,11 @@ public class AutomataSimulator implements SimulatorInterface {
 				names[count] = line.substring(1, line.length()).trim();
 					
 				count++;	
+			}
+			
+			if (numberOfNames <= THRESHOLD) {
+				fileScanner.close();
+				throw new IllegalArgumentException(THRESHOLD_ERROR_MESSAGE);
 			}
 			
 			//is using size okay? will grid always be 20x20?
