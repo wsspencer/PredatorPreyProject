@@ -5,27 +5,57 @@ import java.awt.Color;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
 
+/**
+ * A class to outline the specific behaviors of animals in the middle of the food chain
+ * @author Scott Spencer
+ *
+ */
 public class PredatorPrey extends Animal {
 	
+	/**
+	 * A boolean instance variable for whether the animal has bred in a step.
+	 */
 	private boolean bred = false;
 	
+	/**
+	 * A boolean instance variable for whether the animal has eaten in a step.
+	 */
 	private boolean ate = false;
 	
+	/**
+	 * An integer instance variable for our animal's age.
+	 */
 	private int age = 0;
 	
+	/**
+	 * An integer instance variable for the time since our animal last bred.
+	 */
 	private int timeSinceLastBreed = 0;
 	
+	/**
+	 * An integer instance variable for the time since our animal last ate.
+	 */
 	private int timeSinceLastAte = 0;
 
+	/**
+	 * Constructor method for an animal in the middle of the food chain
+	 * @param symbol char of our animal's symbol
+	 */
 	public PredatorPrey(char symbol) { 
 		super(symbol);
 	}
  
+	/**
+	 * Getter method for a middle animal's color on the grid.
+	 */
 	@Override
 	public Color getColor() {
 		return Configs.getMiddleColor();
 	}
 
+	/**
+	 * Voided method for our animal's actions
+	 */
 	@Override
 	public void act(Location position, EcoGrid positionFacts) {
 		bred = false;
@@ -83,6 +113,9 @@ public class PredatorPrey extends Animal {
 		age++;
 	}
 
+	/**
+	 * Boolean method for checking whether or not it is "past" our animal's breed time.
+	 */
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
 		if (timeSinceLastBreed >= Configs.getMiddleBreedTime()) {
@@ -92,11 +125,17 @@ public class PredatorPrey extends Animal {
 		return false;
 	}
 
+	/**
+	 * Animal method for making a new baby 
+	 */
 	@Override
 	protected Animal makeNewBaby() {
 		return new PredatorPrey(this.getSymbol());
 	}
 
+	/**
+	 * Integer method for getting our animal's food chain rank
+	 */
 	@Override
 	protected int getFoodChainRank() {
 		return Configs.getMiddleFoodChainRank();
