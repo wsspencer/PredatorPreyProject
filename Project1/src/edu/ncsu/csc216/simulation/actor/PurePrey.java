@@ -22,7 +22,7 @@ public class PurePrey extends Animal {
 		return Configs.getPreyColor();
 	}
  
-	@Override
+	@Override 
 	public void act(Location position, EcoGrid positionFacts) {
 		breedSuccess = false; 
 		
@@ -68,7 +68,7 @@ public class PurePrey extends Animal {
 
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		if (timeSinceLastBreed > Configs.getPreyBreedTime()) {
+		if (timeSinceLastBreed >= Configs.getPreyBreedTime()) {
 			return true;
 		}
 		return false;
