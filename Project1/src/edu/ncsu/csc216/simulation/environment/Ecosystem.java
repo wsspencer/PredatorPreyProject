@@ -124,7 +124,13 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public void enableTheLiving() {
-		
+		for (int i = 0; i < this.maxCols; i++) {
+			for (int j = 0; j < this.maxRows; j++) {
+				if (this.grid[j][i].isAlive()) {
+					this.grid[j][i].enable();
+				}
+			}
+		}		
 	}
 	
 	public void buryTheDead() {

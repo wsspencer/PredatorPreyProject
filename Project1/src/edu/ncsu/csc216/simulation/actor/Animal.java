@@ -12,7 +12,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  * @author Scott Spencer
  * 
  */
-public abstract class Animal { 
+public abstract class Animal {  
 	private int timeSinceLastMeal = 0;
 	private int timeSinceLastBreed = 0; 
 	private boolean canActThisStep = false;
