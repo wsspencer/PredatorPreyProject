@@ -11,7 +11,7 @@ public class PurePredator extends Animal {
 	
 	private boolean ate = false;
 	
-	private int timeSinceLastBred = 0;
+	private int timeSinceLastBreed = 0;
 	
 	private int timeSinceLastAte = 0;
 
@@ -41,7 +41,7 @@ public class PurePredator extends Animal {
 		//checks that the animal can act 
 		// Checks that the animal has not bred in the passed two turns, attempts
 		//to breed if not.
-		if (this.pastBreedTime(timeSinceLastBred) && this.canAct() && this.isAlive()
+		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct() && this.isAlive()
 				&& this.getSymbol() == positionFacts.getItemAt(position).getSymbol()) {
 			this.breed(position, positionFacts);
 			this.disable();
@@ -56,7 +56,7 @@ public class PurePredator extends Animal {
 		}		
 			
 		//Checks if the animal is going to die of starvation, kills it if so.
-		if (this.timeSinceLastAte >= Configs.getPredatorStarveTime() && this.canAct()) {
+		if (this.timeSinceLastAte >= Configs.getPredatorStarveTime()) {
 			this.die();
 		}
 		
