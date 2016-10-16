@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import edu.ncsu.csc216.simulation.simulator.AutomataSimulator;
+
 public class Configs {
 	private static final int[] DEFAULT_FOOD_CHAIN_RANK = {0, 10, 20};
 	private static final Color[] DEFAULT_COLORS = {Color.green, Color.orange, Color.red};
@@ -14,14 +16,11 @@ public class Configs {
 	private static final int[] DEFAULT_BREED_TIME = {1, 7, 15};
 	private static int[] BREED_TIME = {};
 	
-	public Configs() { 
-	
-	}
 	
 	public static void initConfigs(Color[] c, int[] s, int[] b) {
 		if (c != null && s != null && b != null) {
 			PLAYER_COLORS = c;
-			STARVE_TIME = s;
+			STARVE_TIME = s; 
 			BREED_TIME = b;
 		}
 		else {

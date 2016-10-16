@@ -54,6 +54,14 @@ public class PurePreyTest {
 		
 		assertTrue(tribble1.pastBreedTime(tribble1.getTimeSinceLastBreed()));
 		
+		//test bury the living since it's easier here
+		Animal tribble3 = new PurePrey('T');
+		Location deathSite = new Location(5, 5);
+		grid.add(tribble3, deathSite);
+		tribble3.die();
+		grid.buryTheDead();
+		
+		assertTrue(grid.isEmpty(deathSite));
 		
 	}
 

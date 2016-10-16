@@ -24,7 +24,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	
 	private int numberOfNames = 0;
 	
-	private String[] names;
+	private String[] names; 
 	
 	private char[] symbol;
 	
@@ -42,7 +42,7 @@ public class AutomataSimulator implements SimulatorInterface {
 		try {
 			File initFile = new File(initFileName);
 			Scanner fileScanner = new Scanner(initFile);
-			char[][] animals = new char[SIZE][SIZE];
+			char[][] animals = new char[SIZE][SIZE]; 
 			int count = 0;
 			int gridCount = 0;
 		
@@ -129,9 +129,10 @@ public class AutomataSimulator implements SimulatorInterface {
 			}
 			configReader.nextLine();
 			configReader.close();
+			Configs.initConfigs(colors, starve, breed);
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException();
-		}
+		} 
 	}
 
 	public void step() {

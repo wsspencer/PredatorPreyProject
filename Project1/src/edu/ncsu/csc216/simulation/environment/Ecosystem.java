@@ -21,7 +21,6 @@ public class Ecosystem implements EcoGrid {
 		if (this.getItemAt(location) == null || this.getItemAt(location).getSymbol() == '.') {
 			return true;
 		} 
-
 		return false;
 	}
 	
@@ -126,7 +125,7 @@ public class Ecosystem implements EcoGrid {
 	public void enableTheLiving() {
 		for (int i = 0; i < this.maxCols; i++) {
 			for (int j = 0; j < this.maxRows; j++) {
-				if (this.map[j][i].isAlive()) {
+				if (this.map[j][i] != null && this.map[j][i].isAlive()) {
 					this.map[j][i].enable();
 				}
 			}
@@ -136,8 +135,8 @@ public class Ecosystem implements EcoGrid {
 	public void buryTheDead() {
 		for (int i = 0; i < this.maxCols; i++) {
 			for (int j = 0; j < this.maxRows; j++) {
-				if (!this.map[j][i].isAlive()) {
-					this.map[j][i] = null;
+				if (this.map[j][i] == null || !this.map[j][i].isAlive()) { 
+					this.remove(new Location(j, i));
 				}
 			}
 		}

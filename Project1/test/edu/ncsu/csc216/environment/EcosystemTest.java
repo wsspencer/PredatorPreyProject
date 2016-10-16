@@ -10,6 +10,8 @@ import org.junit.Test;
 import edu.ncsu.csc216.simulation.actor.Animal;
 import edu.ncsu.csc216.simulation.actor.PredatorPrey;
 import edu.ncsu.csc216.simulation.actor.PurePredator;
+import edu.ncsu.csc216.simulation.simulator.AutomataSimulator;
+import edu.ncsu.csc216.simulation.actor.PurePrey;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
@@ -92,14 +94,18 @@ public class EcosystemTest {
 	 */
 	@Test
 	public void testBuryTheDead() {
+		new AutomataSimulator("test-files/initFile", "test-files/configFile");
 		EcoGrid grid = new Ecosystem(5, 5);
-		Animal wampa = new PredatorPrey('W');
+		Animal tribble = new PurePrey('T');
 		Location position = new Location(3, 3);
-		grid.add(wampa, position);
+		grid.add(tribble, position);
 
+		tribble.enable();		
+		tribble.act(position, grid);
+		
 		grid.buryTheDead();
 	
-		assertTrue(grid.isEmpty(position));
+		assertTrue(tribble.isAlive());
 	}
 	
 	/**
@@ -111,9 +117,8 @@ public class EcosystemTest {
 		Animal rancor = new PurePredator('R');
 		Location location = new Location(2, 3);
 		grid.add(rancor, location);
-		
 		grid.enableTheLiving();
-		
+				
 		assertTrue(rancor.isAlive());
 	}
 }
