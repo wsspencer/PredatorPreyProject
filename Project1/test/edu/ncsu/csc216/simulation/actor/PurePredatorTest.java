@@ -12,7 +12,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
  * @author wspencer
- *
+ * 
  */
 public class PurePredatorTest {
 
@@ -60,7 +60,7 @@ public class PurePredatorTest {
 		rancor1.enable();
 		rancor2.enable();
 		rancor2.act(new Location(4, 3), grid);
-		rancor1.eat(new Location(3, 3), grid);
+		rancor1.act(new Location(3, 3), grid);
 		grid.buryTheDead();
 		
 		assertFalse(grid.getItemAt(new Location(3, 3)) == rancor1);
