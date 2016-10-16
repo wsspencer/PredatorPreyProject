@@ -45,7 +45,7 @@ public class AutomataSimulator implements SimulatorInterface {
 		char[][] animals = new char[SIZE][SIZE]; 
 		int count = 0;
 		int gridCount = 0;
-		
+		 
 		Configs.setToDefaults();
 		
 		try { 

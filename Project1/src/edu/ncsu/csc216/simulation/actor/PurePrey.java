@@ -13,7 +13,7 @@ public class PurePrey extends Animal {
 	
 	private boolean breedSuccess = false;
 
-	public PurePrey(char symbol) {
+	public PurePrey(char symbol) { 
 		super(symbol);
 	}
 
@@ -36,7 +36,7 @@ public class PurePrey extends Animal {
 		//to breed if not.
 		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct()) {
 			if (this.breed(position, positionFacts) == true) {
-				this.disable();
+				this.disable(); 
 				this.breedSuccess = true;
 			}
 			this.disable();
@@ -49,20 +49,21 @@ public class PurePrey extends Animal {
 			this.move(position, positionFacts);
 			this.disable();
 		}		
-			
-		//Checks if the animal is going to die of old age, kills it if so.
-		if (this.age >= Configs.getPreyStarveTime()) {
-			this.die();
-		}
 		
 		//Checks if the animal has bred this turn, increments time since last
 		//breed if not
 		if (!this.breedSuccess) {
 			this.incrementTimeSinceLastBreed();
+		}	
+			
+		//increment age before checking if it should die
+		age++;
+		//Checks if the animal is going to die of old age, kills it if so.
+		if (this.age >= Configs.getPreyStarveTime()) {
+			this.die();
 		}
 		
 		this.disable();
-		age++;
 	}
 
 	@Override

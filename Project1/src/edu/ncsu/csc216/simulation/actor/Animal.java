@@ -21,11 +21,13 @@ public abstract class Animal {
 	private static int seed; 
 	private static Random randomGenerator = new Random();
 	
-	public Animal(char symbol) {
+	public Animal(char symbol) { 
 		this.symbol = symbol; 
 	}
 	
 	public static void setRandomSeed(int maxBound) {
+		//update the random
+		randomGenerator = new Random();
 		setSeed(randomGenerator.nextInt(maxBound));
 	}
 	

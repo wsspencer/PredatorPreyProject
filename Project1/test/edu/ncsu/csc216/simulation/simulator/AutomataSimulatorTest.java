@@ -7,9 +7,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * @author wspencer
+ * @author wspencer 
  * 
- */
+ */ 
 public class AutomataSimulatorTest {
 
 	/**
@@ -27,9 +27,15 @@ public class AutomataSimulatorTest {
 		
 		assertEquals(sim.getNames()[0], "Great Gray Owl");
 		
-		//create a test for step with single file constructor
+		//create a test for step with single file constructor 
 		AutomataSimulator sim2 = new AutomataSimulator("test-files/initFile");
 		
+		sim2.step();
+		sim2.step();
+		sim2.step();
+		sim2.step();
+		sim2.step();
+		sim2.step();
 		sim2.step();
 		sim2.step();
 		sim2.step();

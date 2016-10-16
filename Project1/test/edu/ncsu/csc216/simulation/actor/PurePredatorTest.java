@@ -27,15 +27,23 @@ public class PurePredatorTest {
 	@Test
 	public void testAct() {
 		//create a grid, animal, and location to test
-		Animal sarlacc = new PurePredator('S');
+		Animal sarlacc = new PurePredator('S'); 
 		EcoGrid grid = new Ecosystem(25, 25);
-		Location sarlaccLocation = new Location(4, 21);
+		Location sarlaccLocation = new Location(4, 20);
+		grid.add(sarlacc, sarlaccLocation);
 		
 		//make sarlacc act
-		sarlacc.act(sarlaccLocation, grid);
+		sarlacc.act(new Location(4, 21), grid);
 		
 		//make an assertion that tests the action of sarlacc
 		assertFalse(sarlacc.canAct());
+		
+		//run through all the sarlacc's actions and see if it dies
+		sarlacc.enable();
+		sarlacc.act(new Location(4, 20), grid);
+		sarlacc.die(); 
+		
+		assertFalse(sarlacc.isAlive());
 	}
 
 	@Test 

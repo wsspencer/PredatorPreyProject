@@ -17,7 +17,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  */
 public class AnimalTest {  
 
-	/** 
+	/**  
 	 * A test method for testing the breed() method in Animal.java
 	 */
 	@Test

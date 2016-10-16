@@ -18,12 +18,12 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  * 
  */
 public class PredatorPreyTest {
-
+ 
 	@Test
 	public void testGetColor() {
 		Animal wampa = new PredatorPrey('W');
 		Configs.setToDefaults();
-		//test get color returns the correct color for this type
+		//test get color returns the correct color for this type 
 		assertEquals(wampa.getColor(), Color.orange);
 	}
 	

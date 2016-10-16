@@ -1,4 +1,4 @@
-package edu.ncsu.csc216.simulation.actor;
+ package edu.ncsu.csc216.simulation.actor;
 
 import java.awt.Color;
 
@@ -37,7 +37,7 @@ public class PurePredator extends Animal {
 		}
 		
 		//checks that the animal can act
-		//animal attempts to eat
+		//animal attempts to eat 
 		if (this.canAct() && this.isAlive() && this.getFoodChainRank() > 
 				positionFacts.getItemAt(position).getFoodChainRank()) {
 			this.eat(position, positionFacts);
@@ -53,7 +53,7 @@ public class PurePredator extends Animal {
 			this.breed(position, positionFacts);
 			this.disable();
 			bred = true;
-		}
+		} 
 			
 		// Checks if the animal has bred in the passed two turns.  If it has, attempts
 		// to move.

@@ -14,7 +14,7 @@ public class Configs {
 	private static final int[] DEFAULT_STARVE_TIME = {10, 6, 5};
 	private static int[] STARVE_TIME = {};
 	private static final int[] DEFAULT_BREED_TIME = {1, 7, 15};
-	private static int[] BREED_TIME = {};
+	private static int[] BREED_TIME = {}; 
 	
 	
 	public static void initConfigs(Color[] c, int[] s, int[] b) {
