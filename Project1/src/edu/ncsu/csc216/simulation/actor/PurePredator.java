@@ -6,7 +6,7 @@ import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
  
 public class PurePredator extends Animal {
-	
+	 
 	private boolean bred = false;
 	
 	private boolean ate = false;

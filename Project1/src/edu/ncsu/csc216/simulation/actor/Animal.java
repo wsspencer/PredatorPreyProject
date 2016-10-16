@@ -68,7 +68,7 @@ public abstract class Animal {
 		timeSinceLastMeal++;
 	}
 	
-	protected void incrementTimeSinceLastBreed() {
+	protected void incrementTimeSinceLastBreed() { 
 		timeSinceLastBreed++;
 	} 
 	

@@ -39,11 +39,31 @@ public class PurePredatorTest {
 		assertFalse(sarlacc.canAct());
 		
 		//run through all the sarlacc's actions and see if it dies
-		sarlacc.enable();
+		sarlacc.enable(); 
 		sarlacc.act(new Location(4, 20), grid);
 		sarlacc.die(); 
 		
 		assertFalse(sarlacc.isAlive());
+		
+		Animal tribble1 = new PurePrey('T');
+		grid.add(tribble1, new Location(3, 3));
+		tribble1.die();
+		Animal rancor1 = new PurePredator('R');
+		grid.add(rancor1, new Location(4, 3));
+		Animal rancor2 = new PurePredator('R');
+		grid.add(rancor2, new Location(3, 4));
+		
+		rancor1.enable();
+		rancor1.act(new Location(3, 3), grid);
+		rancor2.enable();
+		rancor2.act(new Location(4, 4), grid);
+		rancor1.enable();
+		rancor2.enable();
+		rancor2.act(new Location(4, 3), grid);
+		rancor1.eat(new Location(3, 3), grid);
+		grid.buryTheDead();
+		
+		assertFalse(grid.getItemAt(new Location(3, 3)) == rancor1);
 	}
 
 	@Test 

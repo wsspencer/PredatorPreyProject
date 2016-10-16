@@ -17,7 +17,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  * @author wspencer
  * 
  */
-public class PredatorPreyTest {
+public class PredatorPreyTest { 
  
 	@Test
 	public void testGetColor() {
@@ -39,6 +39,27 @@ public class PredatorPreyTest {
 		
 		//make an assertion that tests the action of wampa
 		assertFalse(wampa.canAct());
+		
+		
+		Animal tribble1 = new PurePrey('T');
+		grid.add(tribble1, new Location(3, 3));
+		tribble1.die();
+		Animal wampa1 = new PredatorPrey('R');
+		grid.add(wampa1, new Location(4, 3));
+		Animal wampa2 = new PredatorPrey('R');
+		grid.add(wampa2, new Location(3, 4));
+		
+		wampa1.enable();
+		wampa1.act(new Location(3, 3), grid);
+		wampa2.enable();
+		wampa2.act(new Location(4, 4), grid);
+		wampa1.enable();
+		wampa2.enable();
+		wampa2.act(new Location(4, 3), grid);
+		wampa1.act(new Location(3, 3), grid);
+		grid.buryTheDead();
+		
+		assertFalse(grid.getItemAt(new Location(3, 3)) == wampa1);
 	}
 
 	@Test 
