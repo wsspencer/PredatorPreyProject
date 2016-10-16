@@ -29,7 +29,7 @@ public abstract class Animal {
 	 * This is a boolean instance variable representing the symbol of our animal
 	 */
 	private char symbol;
-	/**
+	/** 
 	 * This is a boolean instance variable representing whether or not our animal is alive
 	 */
 	private boolean alive = true;

@@ -57,13 +57,13 @@ public class PurePrey extends Animal {
 		
 		//checks that the animal can act 
 		// Checks that the animal has not bred in the passed two turns, attempts
-		//to breed if not.
-		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct() && 
-				this.breed(position, positionFacts) == true) {
-			this.disable(); 
-			this.breedSuccess = true;
+		//to breed if not. 
+		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct()) {
+			if (this.breed(position, positionFacts)) {
+				this.breedSuccess = true;
+				this.disable();
+			}
 			this.disable();
-			
 		}
 			
 		// Checks if the animal has bred in the passed two turns.  If it has, attempts

@@ -51,7 +51,8 @@ public class Ecosystem implements EcoGrid {
 	
 	/**
 	 * This is a method for retrieving which animal (if any) is located in the parameterized location
-	 * @params location the location we are looking in.
+	 * @param location the location we are looking in.
+	 * @return Animal the animal at the given location
 	 */
 	public Animal getItemAt(Location location) {
 		return this.map[location.getRow()][location.getCol()];
@@ -59,7 +60,7 @@ public class Ecosystem implements EcoGrid {
 	
 	/**
 	 * This is a method to remove the animal in the parameterized location.
-	 * @params location the location we want to remove an animal from
+	 * @param location the location we want to remove an animal from
 	 */
 	public void remove(Location location) {
 		this.map[location.getRow()][location.getCol()] = null;
