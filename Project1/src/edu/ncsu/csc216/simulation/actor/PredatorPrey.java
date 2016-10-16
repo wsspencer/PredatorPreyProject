@@ -10,7 +10,7 @@ public class PredatorPrey extends Animal {
 	public PredatorPrey(char symbol) {
 		super(symbol);
 	}
-
+ 
 	@Override
 	public Color getColor() {
 		return Configs.getMiddleColor();
@@ -24,7 +24,7 @@ public class PredatorPrey extends Animal {
 
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		if (timeSinceLastBreed > Configs.getMiddleBreedTime()) {
+		if (timeSinceLastBreed >= Configs.getMiddleBreedTime()) {
 			return true;
 		}
 		

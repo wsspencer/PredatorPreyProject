@@ -9,12 +9,12 @@ public class Ecosystem implements EcoGrid {
 	
 	private int maxCols;
 	
-	private Animal[][] grid; 
+	private Animal[][] map; 
 	
 	public Ecosystem(int maxRows, int maxCols) {
-		this.maxRows = maxRows;
+		this.maxRows = maxRows; 
 		this.maxCols = maxCols;
-		this.grid = new Animal[this.maxRows][this.maxCols];
+		this.map = new Animal[this.maxRows][this.maxCols];
 	}
 	
 	public boolean isEmpty(Location location) {
@@ -26,16 +26,16 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Animal getItemAt(Location location) {
-		return grid[location.getRow()][location.getCol()];
+		return map[location.getRow()][location.getCol()];
 	}
 	
 	public void remove(Location location) {
-		grid[location.getRow()][location.getCol()] = null;
+		map[location.getRow()][location.getCol()] = null;
 	}
 	
 	public void add(Animal x, Location location) {
 		if (this.isEmpty(location)) {
-			grid[location.getRow()][location.getCol()] = x;
+			map[location.getRow()][location.getCol()] = x;
 		}
 	}
 	
@@ -120,14 +120,14 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Animal[][] getMap() {
-		return grid;
+		return map;
 	}
 	
 	public void enableTheLiving() {
 		for (int i = 0; i < this.maxCols; i++) {
 			for (int j = 0; j < this.maxRows; j++) {
-				if (this.grid[j][i].isAlive()) {
-					this.grid[j][i].enable();
+				if (this.map[j][i].isAlive()) {
+					this.map[j][i].enable();
 				}
 			}
 		}		
@@ -136,8 +136,8 @@ public class Ecosystem implements EcoGrid {
 	public void buryTheDead() {
 		for (int i = 0; i < this.maxCols; i++) {
 			for (int j = 0; j < this.maxRows; j++) {
-				if (!this.grid[j][i].isAlive()) {
-					this.grid[j][i] = null;
+				if (!this.map[j][i].isAlive()) {
+					this.map[j][i] = null;
 				}
 			}
 		}

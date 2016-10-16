@@ -10,7 +10,7 @@ public class PurePredator extends Animal {
 	public PurePredator(char symbol) {
 		super(symbol);
 	} 
-
+ 
 	@Override
 	public Color getColor() {
 		return Configs.getPredatorColor();
@@ -23,7 +23,7 @@ public class PurePredator extends Animal {
 
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		if (timeSinceLastBreed > Configs.getPredatorBreedTime()) {
+		if (timeSinceLastBreed >= Configs.getPredatorBreedTime()) {
 			return true;
 		}
 		

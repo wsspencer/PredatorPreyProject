@@ -27,7 +27,7 @@ public class Configs {
 		else {
 			setToDefaults();
 		}
-		
+		 
 	}
 	
 	public static void setToDefaults() {
