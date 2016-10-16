@@ -10,7 +10,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  *
  */
 public class Ecosystem implements EcoGrid {  
-	
+	 
 	/**
 	 * This is an integer instance variable for the maximum number of rows in our grid.
 	 */
@@ -40,6 +40,7 @@ public class Ecosystem implements EcoGrid {
 	/**
 	 * This is a method for checking whether or not the location is empty.
 	 * @param location the location we want to check
+	 * @return boolean whether the location is empty
 	 */
 	public boolean isEmpty(Location location) {
 		if (this.getItemAt(location) == null || this.getItemAt(location).getSymbol() == '.') {
@@ -79,6 +80,7 @@ public class Ecosystem implements EcoGrid {
 	 * This is a method used to find the first empty cell neighboring the parameterized one
 	 * @param startDirection the direction we want to start looking before moving counterclockwise
 	 * @param position the location we want to search for empty neighbors around
+	 * @return Location the first empty neighbor of our position
 	 */
 	public Location findFirstEmptyNeighbor(Location position, int startDirection) {
 		//initilized direction checks
@@ -133,6 +135,7 @@ public class Ecosystem implements EcoGrid {
 	/**
 	 * This is a method for returning the location directly north of the parameterized one.
 	 * @param x the location we want the northern direct of.
+	 * @return Location the location north
 	 */
 	//IMPORTANT CONCEPT:  The screen scrolls in all 4 directions.  So due North at the northernmost point will point to 
 	//the block in the same column on the southern-most point. (Think OG arcade Mario Bros.)
@@ -146,6 +149,7 @@ public class Ecosystem implements EcoGrid {
 	/**
 	 * This is a method for returning the location directly south of the parameterized one.
 	 * @param x the location we want the southern direct of.
+	 * @return Location the location South
 	 */
 	public Location dueSouth(Location x) {
 		if (x.getRow() == this.maxRows - 1) {
@@ -157,6 +161,7 @@ public class Ecosystem implements EcoGrid {
 	/**
 	 * This is a method for returning the location directly east of the parameterized one.
 	 * @param x the location we want the eastern direct of.
+	 * @return Location the location east
 	 */
 	public Location dueEast(Location x) {
 		if (x.getCol() == this.maxCols - 1) {
@@ -168,6 +173,7 @@ public class Ecosystem implements EcoGrid {
 	/**
 	 * This is a method for returning the location directly west of the parameterized one.
 	 * @param x the location we want the western direct of.
+	 * @return Location the location west
 	 */
 	public Location dueWest(Location x) {
 		if (x.getCol() == 0) {
@@ -178,6 +184,7 @@ public class Ecosystem implements EcoGrid {
 	
 	/**
 	 * This is a method for returning an animal 2d array representation of our grid.
+	 * @return Animal[][] the 2D animal array representation of our grid
 	 */
 	public Animal[][] getMap() {
 		return this.map;

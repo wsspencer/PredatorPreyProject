@@ -29,7 +29,7 @@ public class PurePrey extends Animal {
 
 	/**
 	 * A constructor method for an animal at the bottom of the food chain
-	 * @param symbol
+	 * @param symbol the char representation of an animal
 	 */
 	public PurePrey(char symbol) { 
 		super(symbol);
@@ -58,11 +58,10 @@ public class PurePrey extends Animal {
 		//checks that the animal can act 
 		// Checks that the animal has not bred in the passed two turns, attempts
 		//to breed if not.
-		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct()) {
-			if (this.breed(position, positionFacts) == true) {
-				this.disable(); 
-				this.breedSuccess = true;
-			}
+		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct() && 
+				this.breed(position, positionFacts) == true) {
+			this.disable(); 
+			this.breedSuccess = true;
 			this.disable();
 			
 		}

@@ -5,7 +5,7 @@ import java.awt.Color;
 /**
  * A class for the color location for our location for the graphic panel.  Extends the superclass Location.
  * @author Scott Spencer
- *
+ * 
  */
 public class PaintedLocation extends Location {
 	
@@ -40,6 +40,10 @@ public class PaintedLocation extends Location {
 		return tint;
 	}
 	
+	/**
+	 * Getter method for retrieving the symbol of the animal.
+	 * @return char the symbol of tha animal
+	 */
 	public char getSymbol() {
 		return symbol;
 	}

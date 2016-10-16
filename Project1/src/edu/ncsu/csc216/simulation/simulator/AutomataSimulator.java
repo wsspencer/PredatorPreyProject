@@ -189,7 +189,7 @@ public class AutomataSimulator implements SimulatorInterface {
 
 			for (int k = 0; k < numberOfNames; k++) {
 				if (configReader.hasNextInt()) {
-					breed[k] = configReader.nextInt();
+					breed[k] = configReader.nextInt(); 
 				}
 				else {
 					Configs.setToDefaults();
@@ -235,6 +235,7 @@ public class AutomataSimulator implements SimulatorInterface {
 
 	/**
 	 * A PaintedLocation[][] method to return our "view" of the grid (a 2D paintedlocation array)
+	 * @return PaintedLocation[][] the grid of cells for the graphic panel to use
 	 */
 	public PaintedLocation[][] getView() {
 		PaintedLocation[][] view = new PaintedLocation[SIZE][SIZE];
@@ -263,6 +264,7 @@ public class AutomataSimulator implements SimulatorInterface {
 
 	/**
 	 * The getNames method (a method for returning the names of animals in the ecosystem as a string array)
+	 * @return String[] an array of names
 	 */
 	public String[] getNames() {
 		return names;

@@ -42,7 +42,7 @@ public interface EcoGrid {
 	 * the given position and that contains no Animal. Start looking in the
 	 * given direction and continue clockwise around the cell.
 	 * @param position the position of the animal that is looking for an empty neighbor
-	 * @param startDirection. Direction to start: 0 = west, 1 = north, 2 = east, 3 = south.
+	 * @param startDirection Direction to start: 0 = west, 1 = north, 2 = east, 3 = south.
 	 * @return the location for the first empty neighbor found, or null if none are found.
 	 */
 	public Location findFirstEmptyNeighbor(Location position, int startDirection); 

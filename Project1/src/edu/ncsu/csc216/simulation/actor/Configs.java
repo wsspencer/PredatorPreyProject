@@ -2,7 +2,7 @@ package edu.ncsu.csc216.simulation.actor;
 
 import java.awt.Color;
 
-/**
+/** 
  * This is a class representation of our ecosystem's configurations.
  * @author Scott Spencer
  *

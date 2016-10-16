@@ -5,6 +5,11 @@ import java.awt.Color;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
  
+/**
+ * Class for representation of an animal on the top of the food chain
+ * @author Scott Spencer
+ *
+ */
 public class PurePredator extends Animal {
 	
 	/**
