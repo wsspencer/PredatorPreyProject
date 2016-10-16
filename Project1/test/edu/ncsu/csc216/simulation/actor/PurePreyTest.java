@@ -22,25 +22,33 @@ public class PurePreyTest {
 	@Test
 	public void testGetColor() {
 		Animal tribble = new PurePrey('T');
-		Configs.setToDefaults();
+		Configs.setToDefaults(); 
 		//test get color returns the correct color for this type
 		assertEquals(tribble.getColor(), Color.green);
-	}
+	} 
 	
 	@Test
 	public void testAct() {
 		//create a grid, animal, and location to test
 		Animal tribble1 = new PurePrey('T');
 		Animal tribble2 = new PurePrey('T');
+		Animal tribble3 = new PurePrey('T');
 		EcoGrid grid = new Ecosystem(25, 25);
 		Location tribble1Location = new Location(4, 21);
 		Location tribble2Location = new Location(5, 21);
+		Location tribble3Location = new Location(22, 4);
 		grid.add(tribble1, tribble1Location);
 		grid.add(tribble2, tribble2Location);
+		grid.add(tribble3, tribble3Location);
 		
-		tribble1.enable();
 		//make tribbles breed and move
+		tribble1.enable(); 
 		tribble1.act(tribble1Location, grid);
+		tribble2.enable();
+		tribble2.act(tribble2Location, grid);
+		tribble3.enable();
+		tribble3.act(tribble3Location, grid);
+		
 		
 		//test that tribble cannot act and is not past its breed time
 		assertFalse(tribble1.canAct());
@@ -49,18 +57,17 @@ public class PurePreyTest {
 		//enable tribble, move it away from the other, have it act (in this case,
 		//it will move) and check that it is pastBreedTime now
 		tribble1.enable();
-		tribble1.move(new Location(3, 21), grid);
 		tribble1.act(new Location(2, 21), grid);
 		
 		assertTrue(tribble1.pastBreedTime(tribble1.getTimeSinceLastBreed()));
 		
 		//test bury the living since it's easier here
-		Animal tribble3 = new PurePrey('T');
+		Animal tribble4 = new PurePrey('T');
 		Location deathSite = new Location(5, 5);
-		grid.add(tribble3, deathSite);
-		tribble3.die();
-		grid.buryTheDead();
+		grid.add(tribble4, deathSite);
+		tribble4.die();
 		
+		grid.buryTheDead();
 		assertTrue(grid.isEmpty(deathSite));
 		
 	}

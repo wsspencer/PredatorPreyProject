@@ -29,7 +29,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	private char[] symbol;
 	
 	private static final char EMPTY = '.';
-	
+	 
 	private EcoGrid simpleSystem = new Ecosystem(SIZE, SIZE); 
 	
 	/**
@@ -39,7 +39,7 @@ public class AutomataSimulator implements SimulatorInterface {
 	 * @param initFileName the filename of the initial file the program needs to run
 	 */
 	public AutomataSimulator(String initFileName) {
-		try {
+		try { 
 			File initFile = new File(initFileName);
 			Scanner fileScanner = new Scanner(initFile);
 			char[][] animals = new char[SIZE][SIZE]; 
@@ -140,7 +140,7 @@ public class AutomataSimulator implements SimulatorInterface {
 		Animal[][] creature = simpleSystem.getMap();
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
-				if (creature[j][i] != null) {
+				if (creature[j][i] != null && creature[j][i].isAlive()) {
 					creature[j][i].enable();
 				}
 			}
@@ -151,9 +151,15 @@ public class AutomataSimulator implements SimulatorInterface {
 				if (creature[j][i] != null && creature[i][j].isAlive()) {
 					creature[j][i].act(new Location(i, j), simpleSystem);
 				}
+			}
+		} 
+		//do a third grid traversal and clear out dead animals that haven't already been eaten
+		for (int i = 0; i < SIZE; i++) {
+			for (int j = 0; j < SIZE; j++) {
 				simpleSystem.buryTheDead();
 			}
 		}
+		
 	}
 
 	public PaintedLocation[][] getView() {

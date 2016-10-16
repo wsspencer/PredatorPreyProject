@@ -69,7 +69,7 @@ public abstract class Animal {
 	
 	protected void incrementTimeSinceLastBreed() {
 		timeSinceLastBreed++;
-	}
+	} 
 	
 	protected boolean breed(Location position, EcoGrid positionFacts) {
 		if (positionFacts.getItemAt(position).getSymbol() == this.symbol) {

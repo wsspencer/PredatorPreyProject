@@ -9,7 +9,7 @@ public class PurePrey extends Animal {
 	
 	private int age = 0;
 	
-	private int timeSinceLastBreed = 0;
+	private int timeSinceLastBred = 0;
 	
 	private boolean bred = false;
 
@@ -28,7 +28,7 @@ public class PurePrey extends Animal {
 		//checks that the animal can act 
 		// Checks that the animal has not bred in the passed two turns, attempts
 		//to breed if not.
-		if (this.pastBreedTime(timeSinceLastBreed)) {
+		if (this.pastBreedTime(timeSinceLastBred)) {
 			this.breed(position, positionFacts);
 			this.disable();
 			bred = true;

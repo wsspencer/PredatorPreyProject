@@ -6,6 +6,12 @@ package edu.ncsu.csc216.simulation.simulator;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import edu.ncsu.csc216.simulation.actor.Animal;
+import edu.ncsu.csc216.simulation.actor.PurePredator;
+import edu.ncsu.csc216.simulation.environment.EcoGrid;
+import edu.ncsu.csc216.simulation.environment.Ecosystem;
+import edu.ncsu.csc216.simulation.environment.utils.Location;
+
 /**
  * @author wspencer
  *
@@ -16,11 +22,14 @@ public class AutomataSimulatorTest {
 	 * Test method for testing the step method in AutomataSimulator
 	 */
 	@Test
-	public void testStep() {
+	public void testStep() { 
 		//create a test for step with two file constructor
 		AutomataSimulator sim = new AutomataSimulator("test-files/initFile", "test-files/configFile");
 		
 		sim.step(); 
+		sim.step();
+		sim.step();
+		sim.step();
 		
 		assertEquals(sim.getNames()[0], "Great Gray Owl");
 		
@@ -28,8 +37,13 @@ public class AutomataSimulatorTest {
 		AutomataSimulator sim2 = new AutomataSimulator("test-files/initFile");
 		
 		sim2.step();
+		sim2.step();
+		sim2.step();
+		sim2.step();
 		
 		assertEquals(sim.getNames()[1], "Mouse");
+		
+		
 	}
 	
 	/**
