@@ -198,9 +198,9 @@ public class SimulatorGUI extends JFrame implements ActionListener {
 		int columns = grid[0].length;
 		for (int i = 0; i < rows; i++) {
 			for (int k = 0; k < columns; k++) {
-				cell[i * rows + k].setText(grid[i][k].getSymbol() + "");
+	 			cell[i * rows + k].setText(grid[i][k].getSymbol() + "");
 				cell[i * rows + k].setBackground(grid[i][k].getColor());
-			}
+			} 
 		}
 	}
     

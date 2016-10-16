@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 import edu.ncsu.csc216.simulation.actor.Animal;
 import edu.ncsu.csc216.simulation.actor.Configs;
+import edu.ncsu.csc216.simulation.actor.PredatorPrey;
+import edu.ncsu.csc216.simulation.actor.PurePredator;
+import edu.ncsu.csc216.simulation.actor.PurePrey;
 import edu.ncsu.csc216.simulation.environment.EcoGrid;
 import edu.ncsu.csc216.simulation.environment.Ecosystem;
 import edu.ncsu.csc216.simulation.environment.utils.Location;
@@ -39,12 +42,13 @@ public class AutomataSimulator implements SimulatorInterface {
 	 * @param initFileName the filename of the initial file the program needs to run
 	 */
 	public AutomataSimulator(String initFileName) {
+		char[][] animals = new char[SIZE][SIZE]; 
+		int count = 0;
+		int gridCount = 0;
+		
 		try { 
 			File initFile = new File(initFileName);
 			Scanner fileScanner = new Scanner(initFile);
-			char[][] animals = new char[SIZE][SIZE]; 
-			int count = 0;
-			int gridCount = 0;
 		
 			if (fileScanner.hasNextInt()) {
 				numberOfNames = fileScanner.nextInt();
@@ -58,7 +62,9 @@ public class AutomataSimulator implements SimulatorInterface {
 			names = new String[numberOfNames];
 			fileScanner.nextLine();
 			
-			while (fileScanner.hasNextLine() && count < numberOfNames && numberOfNames > THRESHOLD) {
+
+			
+			while (fileScanner.hasNextLine() && count < numberOfNames  && numberOfNames > THRESHOLD) {
 				
 				String line = fileScanner.nextLine();
 					
@@ -67,7 +73,9 @@ public class AutomataSimulator implements SimulatorInterface {
 					
 				count++;	
 			}
-			while (fileScanner.hasNextLine() && count >= numberOfNames - 1) {
+			
+			//is using size okay? will grid always be 20x20?
+			while (fileScanner.hasNextLine()) {
 				String line = fileScanner.nextLine();
 				
 				for (int i = 0; i < line.length(); i++) {
@@ -75,15 +83,34 @@ public class AutomataSimulator implements SimulatorInterface {
 				}
 				gridCount++;
 			}
+			
 			fileScanner.close();
 			
 		} catch (FileNotFoundException e) {
 			throw new IllegalArgumentException();
+		} 
+
+		//add in new animals to the ecoSystem grid
+		for (int i = 0; i < SIZE; i++) {
+			for (int j = 0; j < SIZE; j++) {
+				if (animals[j][i] == symbol[0])	{
+					simpleSystem.add(new PurePredator(animals[j][i]), new Location(j, i)); 
+				}
+				if (animals[j][i] == symbol[1]) {
+					simpleSystem.add(new PredatorPrey(animals[j][i]), new Location(j, i));
+				}
+				if (animals[j][i] == symbol[2]) {
+					simpleSystem.add(new PredatorPrey(animals[j][i]), new Location(j, i));
+				}
+				if (animals[j][i] == symbol[3]) {
+					simpleSystem.add(new PurePrey(animals[j][i]), new Location(j, i));
+				}
+				if (animals[j][i] == EMPTY) {
+					simpleSystem.add(null, new Location(j, i));
+				}
+			}
 		}
-		///do something with map created above
-		
 		simpleSystem.getMap();
-		
 	}
 	
 	public AutomataSimulator(String initFileName, String configFileName) {
