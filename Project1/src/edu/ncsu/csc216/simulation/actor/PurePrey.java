@@ -9,9 +9,9 @@ public class PurePrey extends Animal {
 	
 	private int age = 0;
 	
-	private int ageAtLastBreed = 0;
-	
 	private int timeSinceLastBreed = 0;
+	
+	private boolean bred = false;
 
 	public PurePrey(char symbol) {
 		super(symbol);
@@ -24,19 +24,20 @@ public class PurePrey extends Animal {
  
 	@Override
 	public void act(Location position, EcoGrid positionFacts) {
-		//checks that the animal can act
+		bred = false;
+		//checks that the animal can act 
 		// Checks that the animal has not bred in the passed two turns, attempts
 		//to breed if not.
 		if (this.pastBreedTime(timeSinceLastBreed)) {
 			this.breed(position, positionFacts);
 			this.disable();
+			bred = true;
 		}
 			
 		// Checks if the animal has bred in the passed two turns.  If it has, attempts
 		// to move.
 		else if (this.isAlive() && this.canAct()) {
 			this.move(position, positionFacts);
-			this.incrementTimeSinceLastBreed();
 			this.disable();
 		}		
 			
@@ -45,13 +46,19 @@ public class PurePrey extends Animal {
 			this.die();
 		}
 		
+		//Checks if the animal has bred this turn, increments time since last
+		//breed if not
+		if (!this.bred) {
+			this.incrementTimeSinceLastBreed();
+		}
+		
 		this.disable();
 		age++;
 	}
 
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		if (timeSinceLastBreed >= Configs.getPreyBreedTime()) {
+		if (timeSinceLastBreed > Configs.getPreyBreedTime()) {
 			return true;
 		}
 		return false;
