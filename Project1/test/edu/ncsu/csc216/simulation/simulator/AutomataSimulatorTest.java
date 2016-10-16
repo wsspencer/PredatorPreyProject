@@ -24,7 +24,7 @@ public class AutomataSimulatorTest {
 	@Test
 	public void testStep() { 
 		//create a test for step with two file constructor
-		AutomataSimulator sim = new AutomataSimulator("test-files/initFile.txt", "test-files/configFile.txt");
+		AutomataSimulator sim = new AutomataSimulator("test-files/initFile", "test-files/configFile");
 		
 		sim.step(); 
 		sim.step();
@@ -34,7 +34,7 @@ public class AutomataSimulatorTest {
 		assertEquals(sim.getNames()[0], "Great Gray Owl");
 		
 		//create a test for step with single file constructor
-		AutomataSimulator sim2 = new AutomataSimulator("test-files/initFile.txt");
+		AutomataSimulator sim2 = new AutomataSimulator("test-files/initFile");
 		
 		sim2.step();
 		sim2.step();
@@ -51,7 +51,7 @@ public class AutomataSimulatorTest {
 	 */
 	@Test
 	public void testGetView() {
-		AutomataSimulator sim = new AutomataSimulator("test-files/initFile.txt");
+		AutomataSimulator sim = new AutomataSimulator("test-files/initFile");
 		sim.getView();
 		
 		assertTrue(sim.getView() != null);
@@ -62,7 +62,7 @@ public class AutomataSimulatorTest {
 	 */
 	@Test
 	public void testGetNames() {
-		AutomataSimulator sim = new AutomataSimulator("test-files/initFile.txt");
+		AutomataSimulator sim = new AutomataSimulator("test-files/initFile");
 		sim.getNames();
 		
 		assertEquals(sim.getNames()[1], "Mouse");
@@ -73,7 +73,7 @@ public class AutomataSimulatorTest {
 	 */
 	@Test 
 	public void testAutomataSimulator() {
-		AutomataSimulator sim = new AutomataSimulator("test-files/initFile.txt", "test-files/configFile.txt");
+		AutomataSimulator sim = new AutomataSimulator("test-files/initFile", "test-files/configFile");
 		assertEquals(sim.getNames()[1], "Mouse");
 		assertEquals(sim.getNames()[2], "Frog");
 	}

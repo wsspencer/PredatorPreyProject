@@ -9,7 +9,7 @@ public class Ecosystem implements EcoGrid {
 	
 	private int maxCols;
 	
-	private Animal[][] map ; 
+	private Animal[][] map; 
 	
 	public Ecosystem(int maxRows, int maxCols) {
 		this.maxRows = maxRows; 
@@ -25,16 +25,16 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Animal getItemAt(Location location) {
-		return map[location.getRow()][location.getCol()];
+		return this.map[location.getRow()][location.getCol()];
 	}
 	
 	public void remove(Location location) {
-		map[location.getRow()][location.getCol()] = null;
+		this.map[location.getRow()][location.getCol()] = null;
 	}
 	
 	public void add(Animal x, Location location) {
 		if (this.isEmpty(location)) {
-			map[location.getRow()][location.getCol()] = x;
+			this.map[location.getRow()][location.getCol()] = x;
 		}
 	}
 	
@@ -119,7 +119,7 @@ public class Ecosystem implements EcoGrid {
 	}
 	
 	public Animal[][] getMap() {
-		return map;
+		return this.map;
 	}
 	
 	public void enableTheLiving() {

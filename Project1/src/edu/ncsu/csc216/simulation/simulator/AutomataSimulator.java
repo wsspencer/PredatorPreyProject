@@ -175,8 +175,8 @@ public class AutomataSimulator implements SimulatorInterface {
 		//go through and have each animal in the grid act.  Burying the dead along the way
 		for (int i = 0; i < creature.length; i++) {
 			for (int j = 0; j < creature.length; j++) {
-				if (creature[j][i] != null && creature[i][j].isAlive()) {
-					creature[j][i].act(new Location(i, j), simpleSystem);
+				if (creature[j][i] != null && creature[j][i].isAlive()) {
+					creature[j][i].act(new Location(j, i), simpleSystem);
 				}
 			}
 		} 
