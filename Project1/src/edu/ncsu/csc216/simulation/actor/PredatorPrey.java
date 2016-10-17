@@ -118,7 +118,7 @@ public class PredatorPrey extends Animal {
 	 */
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		if (timeSinceLastBreed > Configs.getMiddleBreedTime()) {
+		if (timeSinceLastBreed >= Configs.getMiddleBreedTime()) {
 			return true;
 		}
 		
