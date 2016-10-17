@@ -121,7 +121,7 @@ public abstract class Animal {
 	 */
 	protected int getTimeSinceLastMeal() {
 		return timeSinceLastMeal;
-	} 
+	}
 	
 	/**
 	 * This is a voided method for incrementing the instance variable holding amount of steps since 
@@ -167,7 +167,7 @@ public abstract class Animal {
 	 * @param positionFacts the grid our animal is located in
 	 */
 	protected void move(Location position, EcoGrid positionFacts) {
-		int direction = getSeed();
+		int direction = randomGenerator.nextInt(4); //Limits the results to 0, 1, 2, and 3
 		
 		if (direction == 0) {
 			//go west
