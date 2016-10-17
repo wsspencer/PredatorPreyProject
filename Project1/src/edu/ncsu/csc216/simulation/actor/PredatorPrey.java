@@ -72,7 +72,6 @@ public class PredatorPrey extends Animal {
 		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct() && this.isAlive()
 				&& this.getSymbol() == positionFacts.getItemAt(position).getSymbol()) {
 			this.breed(position, positionFacts);
-			makeNewBaby();
 			this.disable();
 			bred = true;
 		}	
@@ -106,7 +105,7 @@ public class PredatorPrey extends Animal {
 		
 		//Checks if the animal has eaten this turn, increments time since last
 		//the animal last ate
-		if (!this.ate) {
+		if (!this.ate && age != 0) {
 			this.incrementTimeSinceLastMeal();
 		}
 		

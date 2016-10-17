@@ -60,7 +60,6 @@ public class PurePrey extends Animal {
 		//to breed if not. 
 		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct()) {
 			if (this.breed(position, positionFacts)) {
-				makeNewBaby();
 				this.breedSuccess = true;
 				this.disable();
 			}
@@ -76,7 +75,7 @@ public class PurePrey extends Animal {
 		
 		//Checks if the animal has bred this turn, increments time since last
 		//breed if not
-		if (!this.breedSuccess && age != 0) {
+		if (!this.breedSuccess) {
 			this.incrementTimeSinceLastBreed();
 		}	
 			
