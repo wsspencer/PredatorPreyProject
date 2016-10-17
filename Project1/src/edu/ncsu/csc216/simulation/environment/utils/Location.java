@@ -7,7 +7,7 @@ package edu.ncsu.csc216.simulation.environment.utils;
  */
 public class Location {
 	
-	/**
+	/** 
 	 * An integer instance variable for a row index on the grid
 	 */
 	private int row;
@@ -32,7 +32,7 @@ public class Location {
 	 * @return integer for the row index of this location
 	 */
 	public int getRow() {
-		return row; 
+		return this.row; 
 	}
 	
 	/**
@@ -40,6 +40,6 @@ public class Location {
 	 * @return integer for the row column index of this location
 	 */
 	public int getCol() {
-		return column;
+		return this.column;
 	}
 }

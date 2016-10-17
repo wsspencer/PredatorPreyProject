@@ -65,7 +65,7 @@ public class Ecosystem implements EcoGrid {
 	public void remove(Location location) {
 		this.map[location.getRow()][location.getCol()] = null;
 	}
-	
+	 
 	/**
 	 * This is a method used to add a parameterized animal to the parameterized location
 	 * @param location the location we wish to put an animal into
