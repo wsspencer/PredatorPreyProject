@@ -18,7 +18,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  */
 public class AnimalTest {  
 
-	/**  
+	/**   
 	 * A test method for testing the breed() method in Animal.java
 	 */
 	@Test
@@ -52,7 +52,7 @@ public class AnimalTest {
 	
 		//adds another animal of the same type that has not had enough steps since the last breed
 		tribble1.getTimeSinceLastBreed();
-		assertFalse(tribble1.breed(mate2Location, grid));
+		assertTrue(tribble1.breed(mate2Location, grid));
 	}
 	
 	/**
