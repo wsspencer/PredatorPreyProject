@@ -7,7 +7,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
  * This is a class outlining the behaviors of an animal at the bottom of the food chain
- * @author Scott Spencer
+ * @author Scott Spencer 
  *
  */
 public class PurePrey extends Animal {
@@ -75,7 +75,7 @@ public class PurePrey extends Animal {
 		
 		//Checks if the animal has bred this turn, increments time since last
 		//breed if not
-		if (!this.breedSuccess) {
+		if (!this.breedSuccess && age != 0) {
 			this.incrementTimeSinceLastBreed();
 		}	
 			

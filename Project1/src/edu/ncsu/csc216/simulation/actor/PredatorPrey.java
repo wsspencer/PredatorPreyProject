@@ -11,7 +11,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
  *
  */
 public class PredatorPrey extends Animal {
-	
+	 
 	/**
 	 * A boolean instance variable for whether the animal has bred in a step.
 	 */
@@ -99,7 +99,7 @@ public class PredatorPrey extends Animal {
 		
 		//Checks if the animal has bred this turn, increments time since last
 		//breed if not
-		if (!this.bred) {
+		if (!this.bred && age != 0) {
 			this.incrementTimeSinceLastBreed();
 		}
 		

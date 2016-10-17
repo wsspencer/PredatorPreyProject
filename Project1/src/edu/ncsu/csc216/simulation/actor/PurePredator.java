@@ -35,7 +35,7 @@ public class PurePredator extends Animal {
 	/**
 	 * An integer instance variable for the age of our animal
 	 */
-	private int age = 0;
+	private int age = 0; 
 
 	/**
 	 * A constructor method for an animal at the top of the food chain
@@ -99,7 +99,7 @@ public class PurePredator extends Animal {
 		
 		//Checks if the animal has bred this turn, increments time since last
 		//breed if not
-		if (!this.bred) {
+		if (!this.bred && age != 0) {
 			this.incrementTimeSinceLastBreed();
 		}
 		
