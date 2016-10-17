@@ -72,6 +72,7 @@ public class PredatorPrey extends Animal {
 		if (this.pastBreedTime(timeSinceLastBreed) && this.canAct() && this.isAlive()
 				&& this.getSymbol() == positionFacts.getItemAt(position).getSymbol()) {
 			this.breed(position, positionFacts);
+			makeNewBaby();
 			this.disable();
 			bred = true;
 		}	
