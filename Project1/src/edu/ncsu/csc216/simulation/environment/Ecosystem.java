@@ -5,7 +5,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
  * This is the ecosystem class, its purpose is to establish what it means to be the grid of animals our program will
- * use.  It also implements  the interface "EcoGrid"
+ * use.  It also implements  the interface "EcoGrid" 
  * @author Scott Spencer
  *
  */
@@ -119,11 +119,15 @@ public class Ecosystem implements EcoGrid {
 				}	
 				threeCheck = true;
 				//resets startDirection to start the clockwise counting
-				startDirection = -1;
 			}
 			//increments startDirection to re-run loop (in the case that startDirection was initially 
 			//greater than 0
-			startDirection++;
+			if (startDirection == 3) {
+				startDirection = 0;
+			}
+			else {
+				startDirection++;
+			}
 			
 			//personal short circuit to exit loop if each of the directions has been checked for empty
 			if (zeroCheck && oneCheck && twoCheck && threeCheck) {
