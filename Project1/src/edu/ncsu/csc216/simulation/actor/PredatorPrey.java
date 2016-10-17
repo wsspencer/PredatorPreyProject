@@ -7,7 +7,7 @@ import edu.ncsu.csc216.simulation.environment.utils.Location;
 
 /**
  * A class to outline the specific behaviors of animals in the middle of the food chain
- * @author Scott Spencer
+ * @author Scott Spencer 
  *
  */
 public class PredatorPrey extends Animal {
@@ -118,7 +118,7 @@ public class PredatorPrey extends Animal {
 	 */
 	@Override
 	protected boolean pastBreedTime(int timeSinceLastBreed) {
-		if (timeSinceLastBreed >= Configs.getMiddleBreedTime()) {
+		if (timeSinceLastBreed > Configs.getMiddleBreedTime()) {
 			return true;
 		}
 		
